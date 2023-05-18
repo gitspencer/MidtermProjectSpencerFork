@@ -199,7 +199,7 @@ DROP TABLE IF EXISTS `sighting_image` ;
 CREATE TABLE IF NOT EXISTS `sighting_image` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `image_url` VARCHAR(2000) NULL,
-  `caption` VARCHAR(150) NULL,
+  `caption` TEXT NULL,
   `sighting_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_sighting_image_sighting1_idx` (`sighting_id` ASC),
@@ -278,7 +278,8 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skyreportdb`;
-INSERT INTO `location` (`id`, `address`, `city`, `zipcode`, `state`, `country`) VALUES (1, 'a', 'a', 'a', 'a', 'a');
+INSERT INTO `location` (`id`, `address`, `city`, `zipcode`, `state`, `country`) VALUES (1, '4311 Washington Blvd', 'Nellis AFB', '89191', 'Nevada', 'United States');
+INSERT INTO `location` (`id`, `address`, `city`, `zipcode`, `state`, `country`) VALUES (2, '', 'Roswell', '88201', 'New Mexico', 'United States');
 
 COMMIT;
 
@@ -288,7 +289,89 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `skyreportdb`;
-INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `profile_picture_url`, `location_id`, `first_name`, `last_name`, `about_me`, `date_created`, `last_update`) VALUES (1, 'admin', '1234', 1, 'ADMIN', NULL, 1, NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `user` (`id`, `username`, `password`, `enabled`, `role`, `profile_picture_url`, `location_id`, `first_name`, `last_name`, `about_me`, `date_created`, `last_update`) VALUES (1, 'admin', '1234', 1, 'ADMIN', 'https://www.researchgate.net/publication/335975371/figure/fig1/AS:806095123652619@1569199462871/Hacker-stock-photo-Image-credit-hacker-1-iaBeta-C-2017-Public-Domain.png', 1, 'John', 'Doe', 'd-_-b', '2023-05-18', '2023-05-18');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skyreportdb`;
+INSERT INTO `category` (`id`, `name`, `description`, `picture_url`) VALUES (1, 'Wreckage', 'Tinfoil, rubber and thin wooden beams', 'https://www.menzelphoto.com/img-get/I0000Z9tcNGZAIuU/s/1200/I0000Z9tcNGZAIuU.jpg');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `known_object`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skyreportdb`;
+INSERT INTO `known_object` (`id`, `name`, `description`, `picture_url`, `category_id`) VALUES (1, 'Weather balloon', 'High altitude weather balloon ladened with special equipment to monitor Soviet nuclear testing.', 'https://upload.wikimedia.org/wikipedia/commons/5/5c/Transosonde.png', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `sighting`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skyreportdb`;
+INSERT INTO `sighting` (`id`, `sighting_date`, `picture_url`, `description`, `user_id`, `location_id`, `known_object_id`, `date_created`, `last_update`, `title`) VALUES (1, '1947-06-26', 'https://libraries.uta.edu/sites/default/files/styles/2_grid_width/public/2019-07/general-ramey.png?itok=a2oi0uS5', 'Found debris – tinfoil, rubber, and thin wooden beams – scattered across a square mile of desert.', 1, 2, 1, '1947-06-26', '2023-05-18', 'Roswell incident');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skyreportdb`;
+INSERT INTO `comment` (`id`, `content`, `user_id`, `sighting_id`, `in_reply_to`, `comment_date`) VALUES (1, 'Visiting the Roswell UFO site was fascinating. The mysterious crash and government cover-up added to the intrigue. Walking through the desert, I couldn\'t help but wonder about encounters with aliens.', 1, 1, NULL, '2023-05-18');
+INSERT INTO `comment` (`id`, `content`, `user_id`, `sighting_id`, `in_reply_to`, `comment_date`) VALUES (2, 'The experience fueled my curiosity about extraterrestrial life and made me reflect on the mysteries of the universe. ', 1, 1, 1, '2023-05-18');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `sighting_has_category`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skyreportdb`;
+INSERT INTO `sighting_has_category` (`sighting_id`, `category_id`) VALUES (1, 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `sighting_image`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skyreportdb`;
+INSERT INTO `sighting_image` (`id`, `image_url`, `caption`, `sighting_id`) VALUES (1, 'https://media-cldnry.s-nbcnews.com/image/upload/t_fit-560w,f_auto,q_auto:best/newscms/2017_28/2070136/170712-roswell-mn-1245.jpg', 'Air Force personnel identify metallic fragments found by a farmer near Roswell, New Mexico, in 1947 as pieces of a weather balloon. The discovery of the fragments became the basis of the Roswell incident.', 1);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `sighting_rating`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skyreportdb`;
+INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (1, 1, 4, '2023-05-18', 'The OG');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `user_has_comment`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `skyreportdb`;
+INSERT INTO `user_has_comment` (`user_id`, `comment_id`, `comment_vote`) VALUES (1, 1, 1);
+INSERT INTO `user_has_comment` (`user_id`, `comment_id`, `comment_vote`) VALUES (1, 2, NULL);
 
 COMMIT;
 
