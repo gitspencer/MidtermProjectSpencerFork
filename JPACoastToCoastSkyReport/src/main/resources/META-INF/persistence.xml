@@ -7,6 +7,13 @@
 	   <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     
     <!-- begin entities  -->
+    <class>com.skilldistillery.skyreport.entities.Category</class>
+    <class>com.skilldistillery.skyreport.entities.Comment</class>
+    <class>com.skilldistillery.skyreport.entities.KnownObject</class>
+    <class>com.skilldistillery.skyreport.entities.Location</class>
+    <class>com.skilldistillery.skyreport.entities.Sighting</class>
+    <class>com.skilldistillery.skyreport.entities.SightingImage</class>
+    <class>com.skilldistillery.skyreport.entities.SightingRating</class>
     <class>com.skilldistillery.skyreport.entities.User</class>
    
 
