@@ -10,5 +10,7 @@
 
 <h1>Coast to Coast Sky Report - Home Page</h1>
 
+${SMOKETEST}
+
 </body>
 </html>
