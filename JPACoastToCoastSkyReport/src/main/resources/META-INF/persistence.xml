@@ -18,6 +18,7 @@
     <class>com.skilldistillery.skyreport.entities.SightingRating</class>
     <class>com.skilldistillery.skyreport.entities.User</class>
     <class>com.skilldistillery.skyreport.entities.UserHasComment</class>
+    <class>com.skilldistillery.skyreport.entities.UserHasCommentId</class>
    
 
 
