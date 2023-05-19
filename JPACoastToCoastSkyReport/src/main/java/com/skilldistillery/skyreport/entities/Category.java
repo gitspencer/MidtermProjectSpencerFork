@@ -26,9 +26,21 @@ public class Category {
 	
 	@OneToMany(mappedBy= "category")
 	private List<KnownObject> knownObjects;
-
+	
+	@OneToMany(mappedBy="category")
+	private List<SightingHasCategory> sightingHasCategory;
+	
+ 
 	public Category() {
 		super();
+	}
+
+	public List<SightingHasCategory> getSightingHasCategory() {
+		return sightingHasCategory;
+	}
+
+	public void setSightingHasCategory(List<SightingHasCategory> sightingHasCategory) {
+		this.sightingHasCategory = sightingHasCategory;
 	}
 
 	public int getId() {

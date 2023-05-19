@@ -54,9 +54,18 @@ public class Sighting {
 	@OneToMany(mappedBy= "sighting")
 	private List<SightingRating> sightingRating;
 	
+	@OneToMany(mappedBy= "sighting")
+	private List<SightingHasCategory> sightingHasCategory;
 	
 	public Sighting() {
 		super();
+	}
+	public List<SightingHasCategory> getSightingHasCategory() {
+		return sightingHasCategory;
+	}
+
+	public void setSightingHasCategory(List<SightingHasCategory> sightingHasCategory) {
+		this.sightingHasCategory = sightingHasCategory;
 	}
 
 	public List<SightingRating> getSightingRating() {

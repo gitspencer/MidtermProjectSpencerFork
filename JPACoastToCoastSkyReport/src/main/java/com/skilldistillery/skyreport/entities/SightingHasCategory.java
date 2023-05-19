@@ -1,69 +1,79 @@
 package com.skilldistillery.skyreport.entities;
 
-import java.io.Serializable;
 import java.util.Objects;
 
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.Table;
 
-@Embeddable
-public class SightingHasCategory implements Serializable{
-	
-	private static final long serialVersionUID = 1L;
-	
-	@Column(name="sighting_id")
-	private int sightingId;
-	
-	@Column(name="category_id")
-	private int categoryId;
+@Entity
+@Table(name=" sighting_has_category")
+public class SightingHasCategory{
+@EmbeddedId
+private SightingHasCategoryId id;
 
-	public SightingHasCategory() {
-		super();
-	}
+@ManyToOne
+@JoinColumn(name = "category_id")
+@MapsId(value = "categoryId")
+private Category category;
 
-	public int getSightingId() {
-		return sightingId;
-	}
+@ManyToOne
+@JoinColumn(name = "sighting_id")
+@MapsId(value = "sightingId")
+private Sighting sighting;
 
-	public void setSightingId(int sightingId) {
-		this.sightingId = sightingId;
-	}
+public SightingHasCategory() {
+	super();
+}
 
-	public int getCategoryId() {
-		return categoryId;
-	}
+public SightingHasCategoryId getId() {
+	return id;
+}
 
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
-	}
+public void setId(SightingHasCategoryId id) {
+	this.id = id;
+}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+public Category getCategory() {
+	return category;
+}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(categoryId, sightingId);
-	}
+public void setCategory(Category category) {
+	this.category = category;
+}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		SightingHasCategory other = (SightingHasCategory) obj;
-		return categoryId == other.categoryId && sightingId == other.sightingId;
-	}
+public Sighting getSighting() {
+	return sighting;
+}
 
-	@Override
-	public String toString() {
-		return "SightingHasCategory [sightingId=" + sightingId + ", categoryId=" + categoryId + "]";
-	}
-	
-	
-	
+public void setSighting(Sighting sighting) {
+	this.sighting = sighting;
+}
+
+@Override
+public String toString() {
+	return "SightingHasCategory [id=" + id + ", category=" + category + ", sighting=" + sighting + "]";
+}
+
+@Override
+public int hashCode() {
+	return Objects.hash(id);
+}
+
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (getClass() != obj.getClass())
+		return false;
+	SightingHasCategory other = (SightingHasCategory) obj;
+	return Objects.equals(id, other.id);
+}
+
 
 }
