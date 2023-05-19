@@ -32,7 +32,7 @@ public class Category {
 	private List<KnownObject> knownObjects;
 	
 	@ManyToMany
-	@JoinTable(name="category", joinColumns = @JoinColumn(name= "sighting_id"),inverseJoinColumns = @JoinColumn (name="category_id"))
+	@JoinTable(name="sighting_has_category", joinColumns = @JoinColumn(name= "sighting_id"),inverseJoinColumns = @JoinColumn (name="category_id"))
 	private List<Sighting> sightings;
 	
  
