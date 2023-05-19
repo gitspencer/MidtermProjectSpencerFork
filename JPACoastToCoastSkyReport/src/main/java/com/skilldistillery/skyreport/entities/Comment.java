@@ -17,8 +17,8 @@ public class Comment {
 	
 	private String content;
 	
-	@Column(name="in_reply_to")
-	private int inReplyTo;
+//	@Column(name="in_reply_to")
+//	private int parentComment;
 
 	@Column(name="comment_date")
 	private LocalDateTime commentDate;
@@ -43,13 +43,13 @@ public class Comment {
 		this.content = content;
 	}
 
-	public int getInReplyTo() {
-		return inReplyTo;
-	}
-
-	public void setInReplyTo(int inReplyTo) {
-		this.inReplyTo = inReplyTo;
-	}
+//	public int getInReplyTo() {
+//		return inReplyTo;
+//	}
+//
+//	public void setInReplyTo(int inReplyTo) {
+//		this.inReplyTo = inReplyTo;
+//	}
 
 	public LocalDateTime getCommentDate() {
 		return commentDate;
@@ -78,7 +78,7 @@ public class Comment {
 
 	@Override
 	public String toString() {
-		return "Comment [id=" + id + ", content=" + content + ", inReplyTo=" + inReplyTo + ", commentDate="
+		return "Comment [id=" + id + ", content=" + content + ", inReplyTo=" + ", commentDate="
 				+ commentDate + "]";
 	}
 	
