@@ -57,7 +57,7 @@ public class User {
 	private List<SightingRating> sightingRating;
 
 	@OneToMany(mappedBy="user")
-	private List<UserHasComment> userHasComment;
+	private List<CommentVote> commentVote;
 	
 	public User() {
 	}
@@ -66,12 +66,12 @@ public class User {
 		return sightingRating;
 	}
 
-	public List<UserHasComment> getUserHasComment() {
-		return userHasComment;
+	public List<CommentVote> getUserHasComment() {
+		return commentVote;
 	}
 
-	public void setUserHasComment(List<UserHasComment> userHasComment) {
-		this.userHasComment = userHasComment;
+	public void setUserHasComment(List<CommentVote> commentVote) {
+		this.commentVote = commentVote;
 	}
 
 	public void setSightingRating(List<SightingRating> sightingRating) {

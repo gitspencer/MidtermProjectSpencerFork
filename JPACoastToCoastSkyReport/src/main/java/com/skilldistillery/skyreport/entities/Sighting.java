@@ -1,6 +1,7 @@
 package com.skilldistillery.skyreport.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -10,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -54,8 +56,8 @@ public class Sighting {
 	@OneToMany(mappedBy = "sighting")
 	private List<SightingRating> sightingRating;
 
-	@OneToMany(mappedBy = "sighting")
-	private List<SightingHasCategory> sightingHasCategory;
+	@ManyToMany(mappedBy = "sightings")
+	private List<Category> categories;
 
 	@OneToMany(mappedBy = "sighting")
 	private List<Comment> comments;
@@ -72,12 +74,12 @@ public class Sighting {
 		this.comments = comments;
 	}
 
-	public List<SightingHasCategory> getSightingHasCategory() {
-		return sightingHasCategory;
+	public List<Category> getCategories() {
+		return categories;
 	}
 
-	public void setSightingHasCategory(List<SightingHasCategory> sightingHasCategory) {
-		this.sightingHasCategory = sightingHasCategory;
+	public void setSightingHasCategory(List<Category> sightingHasCategory) {
+		this.categories = sightingHasCategory;
 	}
 
 	public List<SightingRating> getSightingRating() {
@@ -174,6 +176,24 @@ public class Sighting {
 
 	public void setSightingImage(List<SightingImage> sightingImage) {
 		this.sightingImage = sightingImage;
+	}
+	
+	public void addCategory(Category category) {
+		if(categories == null) {
+			categories = new ArrayList<>();
+		}
+		if(! categories.contains(category)) {
+			categories.add(category);
+			category.addSighting(this);
+		}
+		
+	}
+	
+	public void removeCategory(Category category) {
+		if(categories != null && categories.contains(category)) {
+			categories.remove(category);
+			category.addSighting(this);
+		}
 	}
 
 	@Override

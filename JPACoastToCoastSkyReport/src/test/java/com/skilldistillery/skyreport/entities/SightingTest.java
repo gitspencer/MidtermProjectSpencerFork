@@ -80,8 +80,8 @@ class SightingTest {
 	@Test
 	void test_Sighting_SightingHasCategory_Mapping() {
 		assertNotNull(sighting);
-		assertNotNull(sighting.getSightingHasCategory());
-		assertTrue(sighting.getSightingHasCategory().size() > 0);
+		assertNotNull(sighting.getCategories());
+		assertTrue(sighting.getCategories().size() > 0);
 	}
 	
 	@Test

@@ -7,7 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class UserHasCommentId implements Serializable {
+public class CommentVoteId implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
@@ -17,11 +17,11 @@ public class UserHasCommentId implements Serializable {
 	@Column(name = "comment_id")
 	private int commentId;
 
-	public UserHasCommentId() {
+	public CommentVoteId() {
 		super();
 	}
 
-	public UserHasCommentId(int userId, int commentId) {
+	public CommentVoteId(int userId, int commentId) {
 		super();
 		this.userId = userId;
 		this.commentId = commentId;
@@ -49,7 +49,7 @@ public class UserHasCommentId implements Serializable {
 
 	@Override
 	public String toString() {
-		return "UserHasCommentId [userId=" + userId + ", commentId=" + commentId + "]";
+		return "CommentVoteId [userId=" + userId + ", commentId=" + commentId + "]";
 	}
 
 	@Override
@@ -65,7 +65,7 @@ public class UserHasCommentId implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserHasCommentId other = (UserHasCommentId) obj;
+		CommentVoteId other = (CommentVoteId) obj;
 		return commentId == other.commentId && userId == other.userId;
 	}
 

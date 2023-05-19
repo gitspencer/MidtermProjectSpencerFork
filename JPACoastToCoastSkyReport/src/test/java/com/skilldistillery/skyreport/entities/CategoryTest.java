@@ -57,7 +57,7 @@ class CategoryTest {
 	@Test
 	void test_Category_to_SightingHasCategory_mapping() {
 		assertNotNull(category);
-		assertTrue(category.getSightingHasCategory().size() > 0);
+		assertTrue(category.getSightings().size() > 0);
 	}
 
 	

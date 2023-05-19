@@ -50,8 +50,8 @@ class CommentTest {
 	@Test
 	void test_UserHasComment_to_comment() {
 		assertNotNull(comment);
-		assertNotNull(comment.getUserHasComments());
-		assertTrue(comment.getUserHasComments().size() > 0);
+		assertNotNull(comment.getCommentVotes());
+		assertTrue(comment.getCommentVotes().size() > 0);
 	}
 	
 	@Test

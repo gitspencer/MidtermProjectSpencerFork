@@ -12,11 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class UserHasCommentTest {
+class CommentVoteTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private UserHasComment userHasComment;
+	private CommentVote commentVote;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,38 +31,38 @@ class UserHasCommentTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		UserHasCommentId uhc = new UserHasCommentId();
+		CommentVoteId uhc = new CommentVoteId();
 		uhc.setCommentId(1);
 		uhc.setUserId(1);
-		userHasComment = em.find(UserHasComment.class, uhc);
+		commentVote = em.find(CommentVote.class, uhc);
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		userHasComment = null;
+		commentVote = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(userHasComment);
-		assertTrue(userHasComment.getCommentVote());
+		assertNotNull(commentVote);
+		assertTrue(commentVote.getCommentVote());
 
 	}
 
 	@Test
 	void test_UserHasComment_User() {
-		assertNotNull(userHasComment);
-		assertNotNull(userHasComment.getUser());
-		assertEquals("John", userHasComment.getUser().getFirstName());
+		assertNotNull(commentVote);
+		assertNotNull(commentVote.getUser());
+		assertEquals("John", commentVote.getUser().getFirstName());
 
 	}
 
 	@Test
 	void test_UserHasComment_Comment() {
-		assertNotNull(userHasComment);
-		assertNotNull(userHasComment.getComment());
-		assertEquals(2023, userHasComment.getComment().getCommentDate().getYear());
+		assertNotNull(commentVote);
+		assertNotNull(commentVote.getComment());
+		assertEquals(2023, commentVote.getComment().getCommentDate().getYear());
 	}
 
 }

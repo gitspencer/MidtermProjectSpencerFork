@@ -12,14 +12,12 @@
     <class>com.skilldistillery.skyreport.entities.KnownObject</class>
     <class>com.skilldistillery.skyreport.entities.Location</class>
     <class>com.skilldistillery.skyreport.entities.Sighting</class>
-    <class>com.skilldistillery.skyreport.entities.SightingHasCategory</class>
-    <class>com.skilldistillery.skyreport.entities.SightingHasCategoryId</class>
     <class>com.skilldistillery.skyreport.entities.SightingRatingId</class>
     <class>com.skilldistillery.skyreport.entities.SightingImage</class>
     <class>com.skilldistillery.skyreport.entities.SightingRating</class>
     <class>com.skilldistillery.skyreport.entities.User</class>
-    <class>com.skilldistillery.skyreport.entities.UserHasComment</class>
-    <class>com.skilldistillery.skyreport.entities.UserHasCommentId</class>
+    <class>com.skilldistillery.skyreport.entities.CommentVote</class>
+    <class>com.skilldistillery.skyreport.entities.CommentVoteId</class>
    
 
 

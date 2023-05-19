@@ -1,5 +1,6 @@
 package com.skilldistillery.skyreport.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -27,21 +31,28 @@ public class Category {
 	@OneToMany(mappedBy= "category")
 	private List<KnownObject> knownObjects;
 	
-	@OneToMany(mappedBy="category")
-	private List<SightingHasCategory> sightingHasCategory;
+	@ManyToMany
+	@JoinTable(name="category", joinColumns = @JoinColumn(name= "sighting_id"),inverseJoinColumns = @JoinColumn (name="category_id"))
+	private List<Sighting> sightings;
 	
  
 	public Category() {
 		super();
 	}
 
-	public List<SightingHasCategory> getSightingHasCategory() {
-		return sightingHasCategory;
+
+
+	public List<Sighting> getSightings() {
+		return sightings;
 	}
 
-	public void setSightingHasCategory(List<SightingHasCategory> sightingHasCategory) {
-		this.sightingHasCategory = sightingHasCategory;
+
+
+	public void setSightings(List<Sighting> sightings) {
+		this.sightings = sightings;
 	}
+
+
 
 	public int getId() {
 		return id;
@@ -84,6 +95,23 @@ public class Category {
 
 	public void setKnownObjects(List<KnownObject> knownObjects) {
 		this.knownObjects = knownObjects;
+	}
+	
+	public void addSighting(Sighting sighting) {
+		if (sightings == null) {
+			sightings = new ArrayList<>();
+		}
+		if (!sightings.contains(sighting)) {
+			sightings.add(sighting);
+			sighting.addCategory(this);
+		}
+	}
+
+	public void removeSighting(Sighting sighting) {
+		if (sightings != null && sightings.contains(sighting)) {
+			sightings.remove(sighting);
+			sighting.removeCategory(this);
+		}
 	}
 
 	@Override

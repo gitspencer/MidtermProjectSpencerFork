@@ -12,9 +12,9 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "user_has_comment")
-public class UserHasComment {
+public class CommentVote {
 	@EmbeddedId
-	private UserHasCommentId id;
+	private CommentVoteId id;
 
 	@Column(name = "comment_vote")
 	private Boolean commentVote;
@@ -29,15 +29,15 @@ public class UserHasComment {
 	@MapsId(value = "commentId")
 	private Comment comment;
 
-	public UserHasComment() {
+	public CommentVote() {
 		super();
 	}
 
-	public UserHasCommentId getId() {
+	public CommentVoteId getId() {
 		return id;
 	}
 
-	public void setId(UserHasCommentId id) {
+	public void setId(CommentVoteId id) {
 		this.id = id;
 	}
 
@@ -67,7 +67,7 @@ public class UserHasComment {
 
 	@Override
 	public String toString() {
-		return "UserHasComment [id=" + id + ", commentVote=" + commentVote + ", user=" + user + ", comment=" + comment
+		return "CommentVote [id=" + id + ", commentVote=" + commentVote + ", user=" + user + ", comment=" + comment
 				+ "]";
 	}
 
@@ -84,7 +84,7 @@ public class UserHasComment {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		UserHasComment other = (UserHasComment) obj;
+		CommentVote other = (CommentVote) obj;
 		return Objects.equals(id, other.id);
 	}
 

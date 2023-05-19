@@ -1,6 +1,7 @@
 package com.skilldistillery.skyreport.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -36,7 +37,7 @@ public class Comment {
 	private User user;
 
 	@OneToMany(mappedBy = "comment")
-	private List<UserHasComment> userHasComments;
+	private List<CommentVote> commentVotes;
 	
 	@ManyToOne
 	@JoinColumn(name = "sighting_id")
@@ -54,12 +55,12 @@ public class Comment {
 		this.sighting = sighting;
 	}
 
-	public List<UserHasComment> getUserHasComments() {
-		return userHasComments;
+	public List<CommentVote> getCommentVotes() {
+		return commentVotes;
 	}
 
-	public void setUserHasComments(List<UserHasComment> userHasComments) {
-		this.userHasComments = userHasComments;
+	public void setCommentVotes(List<CommentVote> commentVotes) {
+		this.commentVotes = commentVotes;
 	}
 
 	public int getId() {
@@ -108,6 +109,46 @@ public class Comment {
 
 	public void setReplies(List<Comment> replies) {
 		this.replies = replies;
+	}
+	
+	public void addCommentVote(CommentVote commentVote) {
+		if (commentVotes == null) {
+			commentVotes = new ArrayList<>();
+		}
+		if (!commentVotes.contains(commentVote)) {
+			commentVotes.add(commentVote);
+			if (commentVote.getComment() != null) {
+			 commentVote.getComment().removeCommentVote(commentVote);
+			}
+			commentVote.setComment(this);
+		}
+	}
+
+	public void removeCommentVote(CommentVote commentVote) {
+		if (commentVotes != null && commentVotes.contains(commentVote)) {
+			commentVotes.remove(commentVote);
+			commentVote.setComment(null);
+		}
+	}
+	
+	public void addReply(Comment reply) {
+		if (replies == null) {
+			replies = new ArrayList<>();
+		}
+		if (!replies.contains(reply)) {
+			replies.add(reply);
+			if (reply.getOriginalComment() != null) {
+			 reply.getOriginalComment().removeReply(reply);
+			}
+			reply.setOriginalComment(this);
+		}
+	}
+
+	public void removeReply(Comment reply) {
+		if (replies != null && replies.contains(reply)) {
+			replies.remove(reply);
+			reply.setOriginalComment(null);
+		}
 	}
 
 	@Override
