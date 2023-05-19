@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Location {
@@ -23,7 +25,14 @@ public class Location {
 	private String state;
 	
 	private String country;
-
+	
+	@OneToOne(mappedBy="location")
+	private User user;
+	
+	@OneToOne
+	@JoinColumn(name="location_id")
+	private Sighting sighting;
+	
 	public Location() {
 		super();
 	}
@@ -75,6 +84,28 @@ public class Location {
 	public void setCountry(String country) {
 		this.country = country;
 	}
+	
+	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+	
+	
+
+	public Sighting getSighting() {
+		return sighting;
+	}
+
+	public void setSighting(Sighting sighting) {
+		this.sighting = sighting;
+	}
+	
+	
 
 	@Override
 	public int hashCode() {

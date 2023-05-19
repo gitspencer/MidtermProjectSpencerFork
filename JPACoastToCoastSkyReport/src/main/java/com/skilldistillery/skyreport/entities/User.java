@@ -1,6 +1,7 @@
 package com.skilldistillery.skyreport.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -8,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 @Entity
 public class User {
@@ -41,6 +45,13 @@ public class User {
 	
 	@Column(name="profile_picture_url")
 	private String pictureUrl;
+	
+	@OneToOne
+	@JoinColumn(name="location_id")
+	private Location location;
+
+	@OneToMany(mappedBy="user")
+	private List <Comment> comment;
 
 	public User() {
 	}
@@ -132,6 +143,26 @@ public class User {
 
 	public void setLastUpdate(LocalDateTime lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+
+	
+	
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	
+	
+	public List<Comment> getComment() {
+		return comment;
+	}
+
+	public void setComment(List<Comment> comment) {
+		this.comment = comment;
 	}
 
 	@Override

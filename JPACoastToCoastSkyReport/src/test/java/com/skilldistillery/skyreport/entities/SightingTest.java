@@ -17,7 +17,7 @@ class SightingTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Sighting sighting;
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("CoastToCoastSkyReport");
@@ -46,4 +46,5 @@ class SightingTest {
 		assertNotNull(sighting.getSightingDate());
 		assertEquals(1947, sighting.getSightingDate().getYear());
 	}
+
 }

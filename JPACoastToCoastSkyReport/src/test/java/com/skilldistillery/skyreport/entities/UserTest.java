@@ -2,6 +2,7 @@ package com.skilldistillery.skyreport.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -51,5 +52,17 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 	}
+	@Test
+	void test_User_Location_Mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getLocation());
+		assertEquals("Nellis AFB", user.getLocation().getCity());
+	}
 
+	@Test
+	void test_User_Comment_Mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getComment());
+		assertTrue(user.getComment().size()>0);
+	}
 }

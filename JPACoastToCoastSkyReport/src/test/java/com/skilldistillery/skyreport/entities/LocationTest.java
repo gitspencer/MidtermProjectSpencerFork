@@ -46,4 +46,13 @@ class LocationTest {
 		assertNotNull(location.getCity());
 		assertEquals("Nellis AFB", location.getCity());
 	}
+	
+	@Test
+	void test_Location_Sighting_Mapping() {
+		location = em.find(Location.class, 2);
+		assertNotNull(location);
+		assertNotNull(location.getSighting());
+		assertEquals(1, location.getSighting().getId());
+
+	}
 }
