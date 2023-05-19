@@ -1,5 +1,6 @@
 package com.skilldistillery.skyreport.entities;
 
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -7,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
@@ -21,6 +23,9 @@ public class Category {
 
 	@Column(name="picture_url")
 	private String pictureUrl;
+	
+	@OneToMany(mappedBy= "category")
+	private List<KnownObject> knownObjects;
 
 	public Category() {
 		super();
@@ -56,6 +61,17 @@ public class Category {
 
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
+	}
+	
+
+	
+
+	public List<KnownObject> getKnownObjects() {
+		return knownObjects;
+	}
+
+	public void setKnownObjects(List<KnownObject> knownObjects) {
+		this.knownObjects = knownObjects;
 	}
 
 	@Override

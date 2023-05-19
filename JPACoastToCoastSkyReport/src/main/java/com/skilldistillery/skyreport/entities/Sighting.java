@@ -1,6 +1,7 @@
 package com.skilldistillery.skyreport.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Column;
@@ -9,6 +10,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -28,12 +31,6 @@ public class Sighting {
 
 	@Column(name = "user_id")
 	private int userId;
-
-	@Column(name = "location_id")
-	private int locationId;
-
-	@Column(name = "known_object_id")
-	private int knownObjectId;
 	
 	@Column(name = "date_created")
 	private LocalDateTime dateCreated;
@@ -42,6 +39,18 @@ public class Sighting {
 	private LocalDateTime lastUpdate;
 	
 	private String title;
+	
+	@OneToOne
+	@JoinColumn(name = "location_id")
+	private Location location;
+	
+	@OneToMany(mappedBy= "sighting")
+	private List<SightingImage> sightingImage;
+	
+	@ManyToOne
+	@JoinColumn(name= "known_object_id")
+	private KnownObject knownObject;
+	
 	
 	public Sighting() {
 		super();
@@ -87,20 +96,13 @@ public class Sighting {
 		this.userId = userId;
 	}
 
-	public int getLocationId() {
-		return locationId;
+
+	public KnownObject getKnownObject() {
+		return knownObject;
 	}
 
-	public void setLocationId(int locationId) {
-		this.locationId = locationId;
-	}
-
-	public int getKnownObjectId() {
-		return knownObjectId;
-	}
-
-	public void setKnownObjectId(int knownObjectId) {
-		this.knownObjectId = knownObjectId;
+	public void setKnownObject(KnownObject knownObject) {
+		this.knownObject = knownObject;
 	}
 
 	public LocalDateTime getDateCreated() {
@@ -127,6 +129,22 @@ public class Sighting {
 		this.title = title;
 	}
 
+	public Location getLocation() {
+		return location;
+	}
+
+	public void setLocation(Location location) {
+		this.location = location;
+	}
+
+	public List<SightingImage> getSightingImage() {
+		return sightingImage;
+	}
+
+	public void setSightingImage(List<SightingImage> sightingImage) {
+		this.sightingImage = sightingImage;
+	}
+
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -146,9 +164,10 @@ public class Sighting {
 
 	@Override
 	public String toString() {
-		return "Sighting [id=" + id + ", sightingDate=" + sightingDate + ", description=" + description + ", userId="
-				+ userId + ", locationId=" + locationId + ", knownObjectId=" + knownObjectId + ", dateCreated="
-				+ dateCreated + ", lastUpdate=" + lastUpdate + ", title=" + title + "]";
+		return "Sighting [id=" + id + ", sightingDate=" + sightingDate + ", pictureUrl=" + pictureUrl + ", description="
+				+ description + ", userId=" + userId + ", dateCreated=" + dateCreated + ", lastUpdate=" + lastUpdate
+				+ ", title=" + title + ", location=" + location + ", sightingImage=" + sightingImage + ", knownObject="
+				+ knownObject + "]";
 	}
 	
 	

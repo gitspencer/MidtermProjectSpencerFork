@@ -46,5 +46,13 @@ class KnownObjectTest {
 		assertNotNull(knownObject.getName());
 		assertEquals("Weather balloon", knownObject.getName());
 	}
+	@Test
+	void test_KnownObject_to_Category_mapping() {
+		assertNotNull(knownObject);
+		assertNotNull(knownObject.getCategory());
+		assertEquals("Wreckage", knownObject.getCategory().getName());
+	}
+
+	
 
 }

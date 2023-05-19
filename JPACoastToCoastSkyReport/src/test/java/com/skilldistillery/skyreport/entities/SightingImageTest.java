@@ -43,8 +43,9 @@ class SightingImageTest {
 	@Test
 	void test() {
 		assertNotNull(sightingImage);
-		assertNotNull(sightingImage.getSightingId());
-		assertEquals(1, sightingImage.getSightingId());
+		assertNotNull(sightingImage.getCaption());
+		assertEquals("Air Force personnel identify metallic fragments found by a farmer near Roswell, New Mexico, in 1947 as pieces of a weather balloon. The discovery of the fragments became the basis of the Roswell incident.", sightingImage.getCaption());
 	}
+
 
 }

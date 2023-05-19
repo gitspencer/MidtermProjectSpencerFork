@@ -29,9 +29,8 @@ public class Location {
 	@OneToOne(mappedBy="location")
 	private User user;
 	
-	@OneToOne
-	@JoinColumn(name="location_id")
-	private Sighting sighting;
+//	@OneToOne(mappedBy="")
+//	private Sighting sighting;
 	
 	public Location() {
 		super();
@@ -94,17 +93,6 @@ public class Location {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
-	
-
-	public Sighting getSighting() {
-		return sighting;
-	}
-
-	public void setSighting(Sighting sighting) {
-		this.sighting = sighting;
-	}
-	
 	
 
 	@Override

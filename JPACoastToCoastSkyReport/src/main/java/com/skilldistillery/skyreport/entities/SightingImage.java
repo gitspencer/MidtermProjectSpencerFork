@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,8 +24,9 @@ public class SightingImage {
 
 	private String caption;
 
-	@Column(name = "sighting_id")
-	private int sightingId;
+	@ManyToOne
+	@JoinColumn(name="sighting_id")
+	private Sighting sighting;
 
 	public SightingImage() {
 		super();
@@ -53,14 +56,6 @@ public class SightingImage {
 		this.caption = caption;
 	}
 
-	public int getSightingId() {
-		return sightingId;
-	}
-
-	public void setSightingId(int sightingId) {
-		this.sightingId = sightingId;
-	}
-
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
@@ -80,7 +75,7 @@ public class SightingImage {
 
 	@Override
 	public String toString() {
-		return "SightingImage [id=" + id + ", caption=" + caption + ", sightingId=" + sightingId + "]";
+		return "SightingImage [id=" + id + ", caption=" + caption + "]";
 	}
 
 }

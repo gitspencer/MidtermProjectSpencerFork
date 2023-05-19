@@ -1,6 +1,8 @@
 package com.skilldistillery.skyreport.entities;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,6 +47,24 @@ class SightingTest {
 		assertNotNull(sighting);
 		assertNotNull(sighting.getSightingDate());
 		assertEquals(1947, sighting.getSightingDate().getYear());
+	}
+	@Test
+	void test_Sighting_to_Location_mapping() {
+		assertNotNull(sighting);
+		assertNotNull(sighting.getLocation());
+		assertEquals("Roswell", sighting.getLocation().getCity());
+	}
+	@Test
+	void test_Sighting_to_SightingImage_mapping() {
+		assertNotNull(sighting);
+		assertNotNull(sighting.getSightingImage());
+		assertTrue(sighting.getSightingImage().size() > 0);
+	}
+	@Test
+	void test_Sighting_to_KnownObject_mapping() {
+		assertNotNull(sighting);
+		assertNotNull(sighting.getKnownObject());
+		assertEquals("Weather balloon",sighting.getKnownObject().getName());
 	}
 
 }

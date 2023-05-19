@@ -2,6 +2,7 @@ package com.skilldistillery.skyreport.entities;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -45,6 +46,11 @@ class CategoryTest {
 	void test() {
 		assertNotNull(category);
 		assertEquals("Wreckage", category.getName());
+	}
+	@Test
+	void test_Category_to_KnownObject_mapping() {
+		assertNotNull(category);
+		assertTrue(category.getKnownObjects().size() > 0);
 	}
 
 }
