@@ -65,4 +65,16 @@ class UserTest {
 		assertNotNull(user.getComment());
 		assertTrue(user.getComment().size()>0);
 	}
+	@Test
+	void test_User_Sighting_Mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getSightingRating());
+		assertTrue(user.getSightingRating().size() > 0);
+	}
+	@Test
+	void test_UserHasComment_Mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getUserHasComment());
+		assertTrue(user.getUserHasComment().size() > 0);
+	}
 }

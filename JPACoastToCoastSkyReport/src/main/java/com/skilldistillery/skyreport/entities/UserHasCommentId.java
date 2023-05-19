@@ -7,24 +7,24 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class SightingRatingId implements Serializable {
+public class UserHasCommentId implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
 	@Column(name = "user_id")
 	private int userId;
 
-	@Column(name = "sighting_id")
-	private int sightingId;
+	@Column(name = "comment_id")
+	private int commentId;
 
-	public SightingRatingId() {
+	public UserHasCommentId() {
 		super();
 	}
 
-	public SightingRatingId(int userId, int sightingId) {
+	public UserHasCommentId(int userId, int commentId) {
 		super();
 		this.userId = userId;
-		this.sightingId = sightingId;
+		this.commentId = commentId;
 	}
 
 	public int getUserId() {
@@ -35,12 +35,12 @@ public class SightingRatingId implements Serializable {
 		this.userId = userId;
 	}
 
-	public int getSightingId() {
-		return sightingId;
+	public int getCommentId() {
+		return commentId;
 	}
 
-	public void setSightingId(int sightingId) {
-		this.sightingId = sightingId;
+	public void setCommentId(int commentId) {
+		this.commentId = commentId;
 	}
 
 	public static long getSerialversionuid() {
@@ -48,8 +48,13 @@ public class SightingRatingId implements Serializable {
 	}
 
 	@Override
+	public String toString() {
+		return "UserHasCommentId [userId=" + userId + ", commentId=" + commentId + "]";
+	}
+
+	@Override
 	public int hashCode() {
-		return Objects.hash(sightingId, userId);
+		return Objects.hash(commentId, userId);
 	}
 
 	@Override
@@ -60,13 +65,8 @@ public class SightingRatingId implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SightingRatingId other = (SightingRatingId) obj;
-		return sightingId == other.sightingId && userId == other.userId;
-	}
-
-	@Override
-	public String toString() {
-		return "SightingId [userId=" + userId + ", sightingId=" + sightingId + "]";
+		UserHasCommentId other = (UserHasCommentId) obj;
+		return commentId == other.commentId && userId == other.userId;
 	}
 
 }

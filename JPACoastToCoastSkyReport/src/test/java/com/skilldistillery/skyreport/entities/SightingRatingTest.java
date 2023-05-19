@@ -12,11 +12,11 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-class CommentTest {
+class SightingRatingTest {
 
 	private static EntityManagerFactory emf;
 	private EntityManager em;
-	private Comment comment;
+	private SightingRating sightingRating;
 	
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,26 +31,22 @@ class CommentTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		comment = em.find(Comment.class, 1);
+		SightingRatingId sri = new SightingRatingId();
+		sri.setSightingId(1);
+		sri.setUserId(1);
+		sightingRating = em.find(SightingRating.class, sri);
 	}
-
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
-		comment = null;
+		sightingRating = null;
 	}
 
 	@Test
 	void test() {
-		assertNotNull(comment);
-		assertNotNull(comment.getCommentDate());
-		assertEquals(2023, comment.getCommentDate().getYear());
-	}
-	@Test
-	void test_UserHasComment_to_comment() {
-		assertNotNull(comment);
-		assertNotNull(comment.getUserHasComments());
-		assertTrue(comment.getUserHasComments().size() > 0);
+		assertNotNull(sightingRating);
+		assertEquals(4, sightingRating.getRating());
+		assertEquals(2023, sightingRating.getRatingDate().getYear());
 	}
 
 

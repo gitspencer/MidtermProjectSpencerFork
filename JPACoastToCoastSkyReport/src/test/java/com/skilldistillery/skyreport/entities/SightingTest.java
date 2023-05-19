@@ -66,5 +66,10 @@ class SightingTest {
 		assertNotNull(sighting.getKnownObject());
 		assertEquals("Weather balloon",sighting.getKnownObject().getName());
 	}
-
+	@Test
+	void test_User_Sighting_Mapping() {
+		assertNotNull(sighting);
+		assertNotNull(sighting.getSightingRating());
+		assertTrue(sighting.getSightingRating().size() > 0);
+	}
 }

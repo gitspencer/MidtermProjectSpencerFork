@@ -1,44 +1,44 @@
 package com.skilldistillery.skyreport.entities;
 
-import java.io.Serializable;
 import java.util.Objects;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "user_has_comment")
+public class UserHasComment {
+	@EmbeddedId
+	private UserHasCommentId id;
 
-@Embeddable
-public class UserHasComment implements Serializable {
-	
-private static final long serialVersionUID = 1L;
-	
-	@Column(name="user_id")
-	private int userId;
-	
-	@Column(name="comment_id")
-	private int commentId;
-
-	@Column(name="comment_vote")
+	@Column(name = "comment_vote")
 	private Boolean commentVote;
+
+	@ManyToOne
+	@JoinColumn(name = "user_id")
+	@MapsId(value = "userId")
+	private User user;
+
+	@ManyToOne
+	@JoinColumn(name = "comment_id")
+	@MapsId(value = "commentId")
+	private Comment comment;
 
 	public UserHasComment() {
 		super();
 	}
 
-	public int getUserId() {
-		return userId;
+	public UserHasCommentId getId() {
+		return id;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public int getCommentId() {
-		return commentId;
-	}
-
-	public void setCommentId(int commentId) {
-		this.commentId = commentId;
+	public void setId(UserHasCommentId id) {
+		this.id = id;
 	}
 
 	public Boolean getCommentVote() {
@@ -49,13 +49,31 @@ private static final long serialVersionUID = 1L;
 		this.commentVote = commentVote;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public Comment getComment() {
+		return comment;
+	}
+
+	public void setComment(Comment comment) {
+		this.comment = comment;
+	}
+
+	@Override
+	public String toString() {
+		return "UserHasComment [id=" + id + ", commentVote=" + commentVote + ", user=" + user + ", comment=" + comment
+				+ "]";
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(commentId, commentVote, userId);
+		return Objects.hash(id);
 	}
 
 	@Override
@@ -67,13 +85,7 @@ private static final long serialVersionUID = 1L;
 		if (getClass() != obj.getClass())
 			return false;
 		UserHasComment other = (UserHasComment) obj;
-		return commentId == other.commentId && Objects.equals(commentVote, other.commentVote) && userId == other.userId;
+		return Objects.equals(id, other.id);
 	}
 
-	@Override
-	public String toString() {
-		return "UserHasComment [userId=" + userId + ", commentId=" + commentId + ", commentVote=" + commentVote + "]";
-	}
-	
-	
 }

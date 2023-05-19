@@ -51,11 +51,20 @@ public class Sighting {
 	@JoinColumn(name= "known_object_id")
 	private KnownObject knownObject;
 	
-	
+	@OneToMany(mappedBy= "sighting")
+	private List<SightingRating> sightingRating;
 	
 	
 	public Sighting() {
 		super();
+	}
+
+	public List<SightingRating> getSightingRating() {
+		return sightingRating;
+	}
+
+	public void setSightingRating(List<SightingRating> sightingRating) {
+		this.sightingRating = sightingRating;
 	}
 
 	public int getId() {

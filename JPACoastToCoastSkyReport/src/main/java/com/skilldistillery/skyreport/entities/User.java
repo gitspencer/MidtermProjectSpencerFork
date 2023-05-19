@@ -21,39 +21,61 @@ public class User {
 	private int id;
 
 	private String username;
-	
+
 	private String password;
-	
-	@Column(name="about_me")
-	private  String aboutMe;
-	
-	@Column(name="date_created")
+
+	@Column(name = "about_me")
+	private String aboutMe;
+
+	@Column(name = "date_created")
 	private LocalDateTime dateCreated;
-	
-	@Column(name="last_update")
+
+	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
-	
-	@Column(name="first_name")
+
+	@Column(name = "first_name")
 	private String firstName;
-	
-	@Column(name="last_name")
+
+	@Column(name = "last_name")
 	private String lastName;
-	
+
 	private Boolean enabled;
-	
+
 	private String role;
-	
-	@Column(name="profile_picture_url")
+
+	@Column(name = "profile_picture_url")
 	private String pictureUrl;
-	
+
 	@OneToOne
-	@JoinColumn(name="location_id")
+	@JoinColumn(name = "location_id")
 	private Location location;
 
-	@OneToMany(mappedBy="user")
-	private List <Comment> comment;
+	@OneToMany(mappedBy = "user")
+	private List<Comment> comment;
 
+	@OneToMany(mappedBy = "user")
+	private List<SightingRating> sightingRating;
+
+	@OneToMany(mappedBy="user")
+	private List<UserHasComment> userHasComment;
+	
 	public User() {
+	}
+
+	public List<SightingRating> getSightingRating() {
+		return sightingRating;
+	}
+
+	public List<UserHasComment> getUserHasComment() {
+		return userHasComment;
+	}
+
+	public void setUserHasComment(List<UserHasComment> userHasComment) {
+		this.userHasComment = userHasComment;
+	}
+
+	public void setSightingRating(List<SightingRating> sightingRating) {
+		this.sightingRating = sightingRating;
 	}
 
 	public int getId() {
@@ -119,7 +141,6 @@ public class User {
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
 	}
-	
 
 	public String getAboutMe() {
 		return aboutMe;
@@ -145,8 +166,6 @@ public class User {
 		this.lastUpdate = lastUpdate;
 	}
 
-	
-	
 	public Location getLocation() {
 		return location;
 	}
@@ -155,8 +174,6 @@ public class User {
 		this.location = location;
 	}
 
-	
-	
 	public List<Comment> getComment() {
 		return comment;
 	}
@@ -188,5 +205,4 @@ public class User {
 				+ ", lastUpdate=" + lastUpdate + ", firstName=" + firstName + ", lastName=" + lastName + "]";
 	}
 
-	
 }
