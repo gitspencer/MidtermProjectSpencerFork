@@ -48,6 +48,20 @@ class SightingRatingTest {
 		assertEquals(4, sightingRating.getRating());
 		assertEquals(2023, sightingRating.getRatingDate().getYear());
 	}
+	
+	@Test
+	void test_SightingRating_Sighting() {
+		assertNotNull(sightingRating);
+		assertNotNull(sightingRating.getSighting());
+		assertEquals(1947, sightingRating.getSighting().getSightingDate().getYear());
+	}
+	
+	@Test
+	void test_SightingRating_User() {
+		assertNotNull(sightingRating);
+		assertNotNull(sightingRating.getUser());
+		assertEquals("John", sightingRating.getUser().getFirstName());
+	}
 
 
 }

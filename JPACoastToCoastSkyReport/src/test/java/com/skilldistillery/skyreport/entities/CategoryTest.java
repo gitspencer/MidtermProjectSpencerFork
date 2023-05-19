@@ -47,10 +47,19 @@ class CategoryTest {
 		assertNotNull(category);
 		assertEquals("Wreckage", category.getName());
 	}
+	
 	@Test
 	void test_Category_to_KnownObject_mapping() {
 		assertNotNull(category);
 		assertTrue(category.getKnownObjects().size() > 0);
 	}
 
+	@Test
+	void test_Category_to_SightingHasCategory_mapping() {
+		assertNotNull(category);
+		assertTrue(category.getSightingHasCategory().size() > 0);
+	}
+
+	
+	
 }

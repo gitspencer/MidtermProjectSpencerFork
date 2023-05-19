@@ -15,11 +15,11 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class UserTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private User user;
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("CoastToCoastSkyReport");
@@ -47,11 +47,7 @@ class UserTest {
 		assertNotNull(user);
 		assertEquals("admin", user.getUsername());
 	}
-	@Test
-	void test_User() {
-		assertNotNull(user);
-		assertEquals("admin", user.getUsername());
-	}
+
 	@Test
 	void test_User_Location_Mapping() {
 		assertNotNull(user);
@@ -63,18 +59,27 @@ class UserTest {
 	void test_User_Comment_Mapping() {
 		assertNotNull(user);
 		assertNotNull(user.getComment());
-		assertTrue(user.getComment().size()>0);
+		assertTrue(user.getComment().size() > 0);
 	}
+
 	@Test
 	void test_User_Sighting_Mapping() {
 		assertNotNull(user);
 		assertNotNull(user.getSightingRating());
 		assertTrue(user.getSightingRating().size() > 0);
 	}
+
 	@Test
 	void test_UserHasComment_Mapping() {
 		assertNotNull(user);
 		assertNotNull(user.getUserHasComment());
 		assertTrue(user.getUserHasComment().size() > 0);
+	}
+
+	@Test
+	void test_User_SightingRating_Mapping() {
+		assertNotNull(user);
+		assertNotNull(user.getSightingRating());
+		assertTrue(user.getSightingRating().size() > 0);
 	}
 }

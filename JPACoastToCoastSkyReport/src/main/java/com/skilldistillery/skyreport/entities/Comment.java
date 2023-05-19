@@ -20,9 +20,13 @@ public class Comment {
 	private int id;
 
 	private String content;
-
-//	@Column(name="in_reply_to")
-//	private int parentComment;
+	
+	@ManyToOne
+	@JoinColumn(name = "in_reply_to")
+	private Comment originalComment;
+	
+	@OneToMany(mappedBy = "originalComment")
+	private List<Comment> replies;
 
 	@Column(name = "comment_date")
 	private LocalDateTime commentDate;
@@ -33,9 +37,21 @@ public class Comment {
 
 	@OneToMany(mappedBy = "comment")
 	private List<UserHasComment> userHasComments;
-
+	
+	@ManyToOne
+	@JoinColumn(name = "sighting_id")
+	private Sighting sighting;
+	
 	public Comment() {
 		super();
+	}
+	
+	public Sighting getSighting() {
+		return sighting;
+	}
+
+	public void setSighting(Sighting sighting) {
+		this.sighting = sighting;
 	}
 
 	public List<UserHasComment> getUserHasComments() {
@@ -62,14 +78,6 @@ public class Comment {
 		this.content = content;
 	}
 
-//	public int getInReplyTo() {
-//		return inReplyTo;
-//	}
-//
-//	public void setInReplyTo(int inReplyTo) {
-//		this.inReplyTo = inReplyTo;
-//	}
-
 	public LocalDateTime getCommentDate() {
 		return commentDate;
 	}
@@ -84,6 +92,22 @@ public class Comment {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public Comment getOriginalComment() {
+		return originalComment;
+	}
+
+	public void setOriginalComment(Comment originalComment) {
+		this.originalComment = originalComment;
+	}
+
+	public List<Comment> getReplies() {
+		return replies;
+	}
+
+	public void setReplies(List<Comment> replies) {
+		this.replies = replies;
 	}
 
 	@Override

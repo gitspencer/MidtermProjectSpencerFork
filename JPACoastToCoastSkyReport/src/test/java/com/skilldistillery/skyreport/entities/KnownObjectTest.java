@@ -46,11 +46,19 @@ class KnownObjectTest {
 		assertNotNull(knownObject.getName());
 		assertEquals("Weather balloon", knownObject.getName());
 	}
+
 	@Test
 	void test_KnownObject_to_Category_mapping() {
 		assertNotNull(knownObject);
 		assertNotNull(knownObject.getCategory());
 		assertEquals("Wreckage", knownObject.getCategory().getName());
+	}
+	
+	@Test
+	void test_KnownObject_to_Sighting_mapping() {
+		assertNotNull(knownObject);
+		assertNotNull(knownObject.getSightings());
+		assertTrue(knownObject.getSightings().size() > 0);
 	}
 
 	

@@ -31,6 +31,14 @@ public class SightingImage {
 	public SightingImage() {
 		super();
 	}
+	
+	public Sighting getSighting() {
+		return sighting;
+	}
+	
+	public void setSighting(Sighting sighting) {
+		this.sighting = sighting;
+	}
 
 	public int getId() {
 		return id;

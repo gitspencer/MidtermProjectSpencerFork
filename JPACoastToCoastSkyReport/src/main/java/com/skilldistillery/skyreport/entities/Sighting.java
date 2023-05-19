@@ -31,35 +31,47 @@ public class Sighting {
 
 	@Column(name = "user_id")
 	private int userId;
-	
+
 	@Column(name = "date_created")
 	private LocalDateTime dateCreated;
 
 	@Column(name = "last_update")
 	private LocalDateTime lastUpdate;
-	
+
 	private String title;
-	
+
 	@OneToOne
 	@JoinColumn(name = "location_id")
 	private Location location;
-	
-	@OneToMany(mappedBy= "sighting")
+
+	@OneToMany(mappedBy = "sighting")
 	private List<SightingImage> sightingImage;
-	
+
 	@ManyToOne
-	@JoinColumn(name= "known_object_id")
+	@JoinColumn(name = "known_object_id")
 	private KnownObject knownObject;
-	
-	@OneToMany(mappedBy= "sighting")
+
+	@OneToMany(mappedBy = "sighting")
 	private List<SightingRating> sightingRating;
-	
-	@OneToMany(mappedBy= "sighting")
+
+	@OneToMany(mappedBy = "sighting")
 	private List<SightingHasCategory> sightingHasCategory;
-	
+
+	@OneToMany(mappedBy = "sighting")
+	private List<Comment> comments;
+
 	public Sighting() {
 		super();
 	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
 	public List<SightingHasCategory> getSightingHasCategory() {
 		return sightingHasCategory;
 	}
@@ -115,7 +127,6 @@ public class Sighting {
 	public void setUserId(int userId) {
 		this.userId = userId;
 	}
-
 
 	public KnownObject getKnownObject() {
 		return knownObject;
@@ -184,11 +195,9 @@ public class Sighting {
 
 	@Override
 	public String toString() {
-		return "Sighting [id=" + id + ", sightingDate=" + sightingDate + ", pictureUrl=" + pictureUrl + ", description="
+		return "Sighting [id=" + id + ", sightingDate=" + sightingDate + ", description="
 				+ description + ", userId=" + userId + ", dateCreated=" + dateCreated + ", lastUpdate=" + lastUpdate
-				+ ", title=" + title + ", location=" + location + ", sightingImage=" + sightingImage + ", knownObject="
-				+ knownObject + "]";
+				+ ", title=" + title + "]";
 	}
-	
-	
+
 }

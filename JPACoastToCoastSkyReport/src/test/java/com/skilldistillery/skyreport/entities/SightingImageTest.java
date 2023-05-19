@@ -47,5 +47,12 @@ class SightingImageTest {
 		assertEquals("Air Force personnel identify metallic fragments found by a farmer near Roswell, New Mexico, in 1947 as pieces of a weather balloon. The discovery of the fragments became the basis of the Roswell incident.", sightingImage.getCaption());
 	}
 
+	@Test
+	void test_SightingImage_Sighting_mapping() {
+		assertNotNull(sightingImage);
+		assertNotNull(sightingImage.getSighting());
+		assertEquals(1, sightingImage.getSighting().getId());
+	}
+
 
 }

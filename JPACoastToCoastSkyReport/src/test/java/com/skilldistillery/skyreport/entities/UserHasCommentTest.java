@@ -17,7 +17,7 @@ class UserHasCommentTest {
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private UserHasComment userHasComment;
-	
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
 		emf = Persistence.createEntityManagerFactory("CoastToCoastSkyReport");
@@ -36,6 +36,7 @@ class UserHasCommentTest {
 		uhc.setUserId(1);
 		userHasComment = em.find(UserHasComment.class, uhc);
 	}
+
 	@AfterEach
 	void tearDown() throws Exception {
 		em.close();
@@ -49,5 +50,19 @@ class UserHasCommentTest {
 
 	}
 
+	@Test
+	void test_UserHasComment_User() {
+		assertNotNull(userHasComment);
+		assertNotNull(userHasComment.getUser());
+		assertEquals("John", userHasComment.getUser().getFirstName());
+
+	}
+
+	@Test
+	void test_UserHasComment_Comment() {
+		assertNotNull(userHasComment);
+		assertNotNull(userHasComment.getComment());
+		assertEquals(2023, userHasComment.getComment().getCommentDate().getYear());
+	}
 
 }

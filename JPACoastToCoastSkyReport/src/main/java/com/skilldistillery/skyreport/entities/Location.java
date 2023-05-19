@@ -6,7 +6,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -29,11 +28,19 @@ public class Location {
 	@OneToOne(mappedBy="location")
 	private User user;
 	
-//	@OneToOne(mappedBy="")
-//	private Sighting sighting;
+	@OneToOne(mappedBy="location")
+	private Sighting sighting;
 	
 	public Location() {
 		super();
+	}
+
+	public Sighting getSighting() {
+		return sighting;
+	}
+
+	public void setSighting(Sighting sighting) {
+		this.sighting = sighting;
 	}
 
 	public int getId() {
