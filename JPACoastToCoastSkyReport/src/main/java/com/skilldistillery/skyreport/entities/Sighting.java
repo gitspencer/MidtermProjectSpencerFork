@@ -52,6 +52,8 @@ public class Sighting {
 	private KnownObject knownObject;
 	
 	
+	
+	
 	public Sighting() {
 		super();
 	}

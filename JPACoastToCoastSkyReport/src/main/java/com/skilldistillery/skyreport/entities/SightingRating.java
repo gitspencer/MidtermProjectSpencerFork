@@ -1,22 +1,19 @@
 package com.skilldistillery.skyreport.entities;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-@Embeddable
-public class SightingRating implements Serializable{
+@Entity
+@Table(name="sighting_rating")
+public class SightingRating{
 	
-	private static final long serialVersionUID = 1L;
-	
-	@Column(name="user_id")
-	private int userId;
-	
-	@Column(name="sighting_id")
-	private int sightingId;
+	@EmbeddedId
+	private SightingRatingId id;
 	
 	private int rating;
 	
@@ -29,37 +26,6 @@ public class SightingRating implements Serializable{
 	public SightingRating() {
 		super();
 	}
-	
-	
-
-	public int getUserId() {
-		return userId;
-	}
-
-
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-
-
-	public int getSightingId() {
-		return sightingId;
-	}
-
-
-
-	public void setSightingId(int sightingId) {
-		this.sightingId = sightingId;
-	}
-
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 
 
 	public int getRating() {
@@ -93,12 +59,10 @@ public class SightingRating implements Serializable{
 	}
 
 
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(rating, ratingComment, ratingDate, sightingId, userId);
+		return Objects.hash(id);
 	}
-
 
 
 	@Override
@@ -110,11 +74,11 @@ public class SightingRating implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		SightingRating other = (SightingRating) obj;
-		return rating == other.rating && Objects.equals(ratingComment, other.ratingComment)
-				&& Objects.equals(ratingDate, other.ratingDate) && sightingId == other.sightingId
-				&& userId == other.userId;
+		return Objects.equals(id, other.id);
 	}
-	
+
+
+
 	
 	
 	
