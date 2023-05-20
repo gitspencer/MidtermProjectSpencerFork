@@ -23,9 +23,9 @@
 				<c:out value="${loggedInUser.firstName }"></c:out>
 				<c:out value="${loggedInUser.lastName }"></c:out>
 			</h3>
-			ID: <c:out value="${loggedInUser.userId }"></c:out>
+			ID: <c:out value="${loggedInUser.id }"></c:out>
 			<br>
-			User Name: <c:out value="${loggedInUser.userName }"></c:out>
+			User Name: <c:out value="${loggedInUser.username }"></c:out>
 			<br>
 		</c:when>
 
