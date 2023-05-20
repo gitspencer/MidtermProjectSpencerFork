@@ -41,21 +41,5 @@ public class UserDAOImpl implements UserDAO {
 		return em.createQuery(jpql, Sighting.class).getResultList();
 	}
 	
-	@Override
-	public Sighting create(Sighting sighting) {
-		Location location = new Location();
-		LocalDate ldt = LocalDate.now();
-		sighting.setUserId(1);
-		sighting.setSightingDate(ldt);
-		location.setAddress("303 Main st.");
-		location.setCity("ABQ");
-		location.setZipcode("87115");
-		location.setState("New Mexico");
-		location.setCountry("United States");
-		em.persist(location);
-		sighting.setLocation(location);
-		em.persist(sighting);
-		return sighting;
-	}
 
 }

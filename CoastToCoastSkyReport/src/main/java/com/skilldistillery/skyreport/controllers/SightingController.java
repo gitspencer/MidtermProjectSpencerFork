@@ -7,14 +7,22 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.skilldistillery.skyreport.data.UserDAO;
+import com.skilldistillery.skyreport.data.SightingDAO;
 import com.skilldistillery.skyreport.entities.Sighting;
 
 @Controller
 public class SightingController {
 
 	@Autowired
-	private UserDAO userDAO;
+	private SightingDAO sightingDAO;
+	
+	@GetMapping("sightingById.do")
+	public String getSighting(int id, Model model) {
+		Sighting sighting = sightingDAO.findById(id);
+		
+		model.addAttribute("sighting", sighting);
+		return "sightingById";
+	}
 
 	@GetMapping(path = "addNewSighting.do")
 	public String routeToSighting() {
@@ -25,7 +33,7 @@ public class SightingController {
 
 	@RequestMapping(path = "addNewSighting.do", method = RequestMethod.POST)
 	public String addSighting(Sighting sighting, Model model) {
-		model.addAttribute("sighting", userDAO.create(sighting));
+		model.addAttribute("sighting", sightingDAO.create(sighting));
 		return "addedSighting";
 
 	}
