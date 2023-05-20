@@ -1,5 +1,6 @@
 package com.skilldistillery.skyreport.data;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;
 
@@ -36,8 +38,24 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public List<Sighting> findAll() {
 		String jpql = "SELECT s FROM Sighting s";
-		System.out.println("hereimpl");
 		return em.createQuery(jpql, Sighting.class).getResultList();
+	}
+	
+	@Override
+	public Sighting create(Sighting sighting) {
+		Location location = new Location();
+		LocalDate ldt = LocalDate.now();
+		sighting.setUserId(1);
+		sighting.setSightingDate(ldt);
+		location.setAddress("303 Main st.");
+		location.setCity("ABQ");
+		location.setZipcode("87115");
+		location.setState("New Mexico");
+		location.setCountry("United States");
+		em.persist(location);
+		sighting.setLocation(location);
+		em.persist(sighting);
+		return sighting;
 	}
 
 }

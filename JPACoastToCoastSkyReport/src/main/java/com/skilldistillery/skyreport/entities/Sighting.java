@@ -1,5 +1,6 @@
 package com.skilldistillery.skyreport.entities;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class Sighting {
 	private int id;
 
 	@Column(name = "sighting_date")
-	private LocalDateTime sightingDate;
+	private LocalDate sightingDate;
 
 	@Column(name = "picture_url")
 	private String pictureUrl;
@@ -98,11 +99,11 @@ public class Sighting {
 		this.id = id;
 	}
 
-	public LocalDateTime getSightingDate() {
+	public LocalDate getSightingDate() {
 		return sightingDate;
 	}
 
-	public void setSightingDate(LocalDateTime sightingDate) {
+	public void setSightingDate(LocalDate sightingDate) {
 		this.sightingDate = sightingDate;
 	}
 

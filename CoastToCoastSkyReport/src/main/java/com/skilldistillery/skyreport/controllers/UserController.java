@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.skyreport.data.UserDAO;
+import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;
 
 @Controller
@@ -48,6 +49,20 @@ public class UserController {
 		return "home";
 	}
 	
+	
+	@GetMapping(path = "addNewSighting.do")
+	public String routeToSighting() {
+		
+		return "addNewSighting";
+		
+	}
+	
+	@RequestMapping(path = "addNewSighting.do", method = RequestMethod.POST)
+	public String addSighting(Sighting sighting, Model model) {
+		model.addAttribute("sighting", userDAO.create(sighting));
+		return "addedSighting";
+
+	}
 	
 
 }

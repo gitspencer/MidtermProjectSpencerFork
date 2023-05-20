@@ -16,6 +16,7 @@
 	<c:when test="${not empty sessionScope.loggedInUser }">
 	  <li> <a href="account.do">Account</a> </li>
 	  <li> <a href="logout.do">Logout</a> </li>
+	  <li> <a href="addNewSighting.do">Report a Sighting</a> </li>
 			
 	</c:when>
 	<c:otherwise>			

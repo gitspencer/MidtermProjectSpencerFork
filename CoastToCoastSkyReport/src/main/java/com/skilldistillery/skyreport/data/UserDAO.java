@@ -10,5 +10,7 @@ public interface UserDAO {
 	User findByUsernameAndPass(String username, String password);
 	List<Sighting> findAll();
 	
+	Sighting create(Sighting sighting);
+	
 
 }
