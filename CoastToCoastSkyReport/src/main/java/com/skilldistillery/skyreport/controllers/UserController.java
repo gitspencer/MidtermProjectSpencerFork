@@ -16,40 +16,38 @@ import com.skilldistillery.skyreport.entities.User;
 public class UserController {
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDAO userDAO;
 
-	// Either works
-	// @RequestMapping(path = "login.do", method = RequestMethod.GET)
-	 @GetMapping("login.do")
-	 public String loginView(HttpSession session) {
-	  if (session.getAttribute("loggedInUser") != null) {
-	   return "home";
-	  }
-	  return "login";
-	 }
+	@GetMapping("login.do")
+	public String loginView(HttpSession session) {
+		if (session.getAttribute("loggedInUser") != null) {
+			return "home";
+		}
+		return "login";
+	}
 
-	 @RequestMapping(path = "login.do", method = RequestMethod.POST)
-	 public String login(Model model, User user, HttpSession session) {
-	  if (session.getAttribute("loggedInUser") != null) {
-	   return "home";
-	  }
-	  String viewName = "";
-	  User authenticatedUser = userDao.findByUsernameAndPass(user.getUsername(), user.getPassword());
-	  if (authenticatedUser != null) {
-	   viewName = "account";
-	   session.setAttribute("loggedInUser", authenticatedUser);
-	  } else {
-	   viewName = "login";
-	  }
-	  return viewName;
-	 }
+	@RequestMapping(path = "login.do", method = RequestMethod.POST)
+	public String login(Model model, User user, HttpSession session) {
+		if (session.getAttribute("loggedInUser") != null) {
+			return "home";
+		}
+		String viewName = "";
+		User authenticatedUser = userDAO.findByUsernameAndPass(user.getUsername(), user.getPassword());
+		if (authenticatedUser != null) {
+			viewName = "account";
+			session.setAttribute("loggedInUser", authenticatedUser);
+		} else {
+			viewName = "login";
+		}
+		return viewName;
+	}
 
-	 @RequestMapping(path = "logout.do")
-	 public String logout(HttpSession session) {
-	//  Also able to remove all user data from session with invalidate()
-	//  session.invalidate();
-	  session.removeAttribute("loggedInUser");
-	  return "home";
-	 }
+	@RequestMapping(path = "logout.do")
+	public String logout(HttpSession session) {
+		session.removeAttribute("loggedInUser");
+		return "home";
+	}
+	
+	
 
 }

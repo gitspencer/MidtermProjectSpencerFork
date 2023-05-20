@@ -12,7 +12,7 @@ import com.skilldistillery.skyreport.data.UserDAO;
 public class AccountController {
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDAO userDAO;
 
 	@RequestMapping(path = "account.do")
 	public String goToAccount(HttpSession session) {
