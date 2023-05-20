@@ -16,43 +16,38 @@ import javax.persistence.OneToMany;
 
 @Entity
 public class Category {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String name;
-	
+
 	private String description;
 
-	@Column(name="picture_url")
+	@Column(name = "picture_url")
 	private String pictureUrl;
-	
-	@OneToMany(mappedBy= "category")
+
+	@OneToMany(mappedBy = "category")
 	private List<KnownObject> knownObjects;
-	
+
 	@ManyToMany
-	@JoinTable(name="sighting_has_category", joinColumns = @JoinColumn(name= "sighting_id"),inverseJoinColumns = @JoinColumn (name="category_id"))
+	@JoinTable(name = "sighting_has_category", 
+	joinColumns = @JoinColumn(name = "sighting_id"), 
+	inverseJoinColumns = @JoinColumn(name = "category_id"))
 	private List<Sighting> sightings;
-	
- 
+
 	public Category() {
 		super();
 	}
-
-
 
 	public List<Sighting> getSightings() {
 		return sightings;
 	}
 
-
-
 	public void setSightings(List<Sighting> sightings) {
 		this.sightings = sightings;
 	}
-
-
 
 	public int getId() {
 		return id;
@@ -85,9 +80,6 @@ public class Category {
 	public void setPictureUrl(String pictureUrl) {
 		this.pictureUrl = pictureUrl;
 	}
-	
-
-	
 
 	public List<KnownObject> getKnownObjects() {
 		return knownObjects;
@@ -96,7 +88,7 @@ public class Category {
 	public void setKnownObjects(List<KnownObject> knownObjects) {
 		this.knownObjects = knownObjects;
 	}
-	
+
 	public void addSighting(Sighting sighting) {
 		if (sightings == null) {
 			sightings = new ArrayList<>();
@@ -135,6 +127,5 @@ public class Category {
 	public String toString() {
 		return "Category [id=" + id + ", name=" + name + ", description=" + description + "]";
 	}
-	
-	
+
 }
