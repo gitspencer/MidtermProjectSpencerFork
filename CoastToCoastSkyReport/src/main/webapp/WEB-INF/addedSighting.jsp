@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Created Sighting Results</title>
 </head>
 <body>
+<%@ include file="nav.jsp"%>
 
 <div class="container">
 
@@ -16,18 +17,19 @@
 				
 		
 				<ul>
-					<li><div class="grow">Coin ID: ${sighting.title}</div></li>
-					<li><div class="grow">Type: ${sighting.sightingDate}</div></li>
-					<li><div class="grow">Mint: ${sighting.description}</div></li>
+					<li><div class="grow">Sighting Title: ${sighting.title}</div></li>
+					<li><div class="grow">Date of Sighting: ${sighting.sightingDate}</div></li>
+					<li><div class="grow">Description: ${sighting.description}</div></li>
 				</ul>
 			
 				
 			
 		</c:when>
 		
-		<c:otherwise>
-			<p>Empty<p>
-		</c:otherwise>
+		<c:when test="${empty sighting}">
+		 <p> No Sighting Found </p>
+		</c:when>
+		
 	</c:choose>
 </div>
 

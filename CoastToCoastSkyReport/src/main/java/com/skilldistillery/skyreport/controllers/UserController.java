@@ -48,21 +48,5 @@ public class UserController {
 		session.removeAttribute("loggedInUser");
 		return "home";
 	}
-	
-	
-	@GetMapping(path = "addNewSighting.do")
-	public String routeToSighting() {
-		
-		return "addNewSighting";
-		
-	}
-	
-	@RequestMapping(path = "addNewSighting.do", method = RequestMethod.POST)
-	public String addSighting(Sighting sighting, Model model) {
-		model.addAttribute("sighting", userDAO.create(sighting));
-		return "addedSighting";
-
-	}
-	
 
 }
