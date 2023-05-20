@@ -1,6 +1,7 @@
 package com.skilldistillery.skyreport.entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -56,9 +57,9 @@ public class User {
 	@OneToMany(mappedBy = "user")
 	private List<SightingRating> sightingRating;
 
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy = "user")
 	private List<CommentVote> commentVote;
-	
+
 	public User() {
 	}
 
@@ -180,6 +181,66 @@ public class User {
 
 	public void setComment(List<Comment> comment) {
 		this.comment = comment;
+	}
+
+	public void addCommentVote(CommentVote commentVot) {
+		if (commentVote == null) {
+			commentVote = new ArrayList<>();
+		}
+		if (!commentVote.contains(commentVot)) {
+			commentVote.add(commentVot);
+			if (commentVot.getUser() != null) {
+				commentVot.getUser().removeCommentVote(commentVot);
+			}
+			commentVot.setUser(this);
+		}
+	}
+
+	public void removeCommentVote(CommentVote commentVot) {
+		if (commentVote != null && commentVote.contains(commentVot))
+			;
+		commentVote.remove(commentVot);
+		commentVot.setUser(this);
+	}
+
+	public void addComment(Comment commen) {
+		if (comment == null) {
+			comment = new ArrayList<>();
+		}
+		if (!comment.contains(commen)) {
+			comment.add(commen);
+			if (commen.getUser() != null) {
+				commen.getUser().removeComment(commen);
+			}
+			commen.setUser(this);
+		}
+	}
+
+	public void removeComment(Comment commen) {
+		if (comment != null && comment.contains(commen))
+			;
+		comment.remove(commen);
+		commen.setUser(this);
+	}
+
+	public void addSightingRating(SightingRating sightingRatin) {
+		if (sightingRating == null) {
+			sightingRating = new ArrayList<>();
+		}
+		if (!sightingRating.contains(sightingRatin)) {
+			sightingRating.add(sightingRatin);
+			if (sightingRatin.getUser() != null) {
+				sightingRatin.getUser().removeSightingRating(sightingRatin);
+			}
+			sightingRatin.setUser(this);
+		}
+	}
+
+	public void removeSightingRating(SightingRating sightingRatin) {
+		if (sightingRating != null && sightingRating.contains(sightingRatin))
+			;
+		sightingRating.remove(sightingRatin);
+		sightingRatin.setUser(this);
 	}
 
 	@Override

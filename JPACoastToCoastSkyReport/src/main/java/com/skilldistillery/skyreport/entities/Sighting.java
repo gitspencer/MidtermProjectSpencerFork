@@ -177,23 +177,83 @@ public class Sighting {
 	public void setSightingImage(List<SightingImage> sightingImage) {
 		this.sightingImage = sightingImage;
 	}
-	
+
 	public void addCategory(Category category) {
-		if(categories == null) {
+		if (categories == null) {
 			categories = new ArrayList<>();
 		}
-		if(! categories.contains(category)) {
+		if (!categories.contains(category)) {
 			categories.add(category);
 			category.addSighting(this);
 		}
-		
+
 	}
-	
+
 	public void removeCategory(Category category) {
-		if(categories != null && categories.contains(category)) {
+		if (categories != null && categories.contains(category)) {
 			categories.remove(category);
 			category.addSighting(this);
 		}
+	}
+
+	public void addSightingRating(SightingRating sightingRatin) {
+		if (sightingRating == null) {
+			sightingRating = new ArrayList<>();
+		}
+		if (!sightingRating.contains(sightingRatin)) {
+			sightingRating.add(sightingRatin);
+			if (sightingRatin.getSighting() != null) {
+				sightingRatin.getSighting().removeSightingRating(sightingRatin);
+			}
+			sightingRatin.setSighting(this);
+		}
+	}
+
+	public void removeSightingRating(SightingRating sightingRatin) {
+		if (sightingRating != null && sightingRating.contains(sightingRatin))
+			;
+		sightingRating.remove(sightingRatin);
+		sightingRatin.setSighting(null);
+	}
+
+	public void addComment(Comment comment) {
+		if (comments == null) {
+			comments = new ArrayList<>();
+		}
+		if (!comments.contains(comment)) {
+			comments.add(comment);
+			if (comment.getSighting() != null) {
+				comment.getSighting().removeComment(comment);
+			}
+			comment.setSighting(this);
+		}
+	}
+
+	public void removeComment(Comment comment) {
+		if (comments != null && comments.contains(comment))
+			;
+		comments.remove(comment);
+		comment.setSighting(this);
+	}
+
+	public void addSightingImage(SightingImage sightingImag) {
+		if (sightingImage == null) {
+			sightingImage = new ArrayList<>();
+		}
+		if (!sightingImage.contains(sightingImag)) {
+			sightingImage.add(sightingImag);
+			if (sightingImag.getSighting() != null) {
+				sightingImag.getSighting().removeSightingImage(sightingImag);
+			}
+			sightingImag.setSighting(this);
+		}
+	}
+
+	public void removeSightingImage(SightingImage sightingImag) {
+		if (sightingImage != null && sightingImage.contains(sightingImag))
+			;
+		sightingImage.remove(sightingImag);
+		sightingImag.setSighting(this);
 	}
 
 	@Override
@@ -215,9 +275,8 @@ public class Sighting {
 
 	@Override
 	public String toString() {
-		return "Sighting [id=" + id + ", sightingDate=" + sightingDate + ", description="
-				+ description + ", userId=" + userId + ", dateCreated=" + dateCreated + ", lastUpdate=" + lastUpdate
-				+ ", title=" + title + "]";
+		return "Sighting [id=" + id + ", sightingDate=" + sightingDate + ", description=" + description + ", userId="
+				+ userId + ", dateCreated=" + dateCreated + ", lastUpdate=" + lastUpdate + ", title=" + title + "]";
 	}
 
 }

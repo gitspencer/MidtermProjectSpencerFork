@@ -1,5 +1,6 @@
 package com.skilldistillery.skyreport.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -34,7 +35,7 @@ public class KnownObject {
 	@ManyToOne
 	@JoinColumn(name="category_id")
 	private Category category;
-
+	
 	public KnownObject() {
 		super();
 	}
@@ -79,14 +80,27 @@ public class KnownObject {
 		this.sightings = sightings;
 	}
 	
-	
-
 	public Category getCategory() {
 		return category;
 	}
 
 	public void setCategory(Category category) {
 		this.category = category;
+	}
+	public void addSighting(Sighting sighting) {
+		if (sightings == null) {sightings = new ArrayList<>(); }
+		if ( ! sightings.contains(sighting)) {
+			sightings.add(sighting);
+			if (sighting.getKnownObject() != null) {
+				sighting.getKnownObject().removeSighting(sighting);
+			} 
+			sighting.setKnownObject(this);
+		}
+	}
+	public void removeSighting(Sighting sighting) {
+		if (sightings != null && sightings.contains(sighting));
+		sightings.remove(sighting);
+		sighting.setKnownObject(this);
 	}
 
 	@Override

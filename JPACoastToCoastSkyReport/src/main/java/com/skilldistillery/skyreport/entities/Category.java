@@ -40,7 +40,6 @@ public class Category {
 	public Category() {
 		super();
 	}
-
 	public List<Sighting> getSightings() {
 		return sightings;
 	}
@@ -104,6 +103,21 @@ public class Category {
 			sightings.remove(sighting);
 			sighting.removeCategory(this);
 		}
+	}
+	public void addKnownObject(KnownObject knownObject) {
+		if (knownObjects == null) {knownObjects = new ArrayList<>(); }
+		if ( ! knownObjects.contains(knownObject)) {
+			knownObjects.add(knownObject);
+			if (knownObject.getCategory() != null) {
+				knownObject.getCategory().removeKnownObject(knownObject);
+			} 
+			knownObject.setCategory(this);
+		}
+	}
+	public void removeKnownObject(KnownObject knownObject) {
+		if (knownObjects != null && knownObjects.contains(knownObject));
+		knownObjects.remove(knownObject);
+		knownObject.setCategory(this);
 	}
 
 	@Override
