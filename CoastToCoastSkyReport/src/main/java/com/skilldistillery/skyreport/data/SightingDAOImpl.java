@@ -39,5 +39,18 @@ public class SightingDAOImpl implements SightingDAO{
 		em.persist(sighting);
 		return sighting;
 	}
+	
+	@Override
+	public boolean deleteById(int id) {
+		try {
+			Sighting sighting = em.find(Sighting.class, id);
+			em.remove(sighting);
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
 
 }

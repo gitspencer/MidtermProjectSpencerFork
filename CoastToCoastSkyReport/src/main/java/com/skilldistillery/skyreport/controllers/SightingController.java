@@ -37,5 +37,23 @@ public class SightingController {
 		return "addedSighting";
 
 	}
+	
+	@RequestMapping(path = "deleteSightingPage.do", method = RequestMethod.GET)
+	public String deleteSightingPage() {
+		return "deleteSightingPage";
+	
+	}
+	
+	@RequestMapping(path = "deleteSightingPage.do", method = RequestMethod.GET)
+	public String deleteSighting(int id, Model model) {
+		if (sightingDAO.deleteById(id)) {
+			model.addAttribute("sighting", "Delete successful");
+			return "result";
+		} else {
+			model.addAttribute("sighting", "Delete unsuccessful");
+		}
+		return "result";
+
+	}
 
 }

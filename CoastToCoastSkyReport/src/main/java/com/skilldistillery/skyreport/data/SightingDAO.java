@@ -6,5 +6,6 @@ public interface SightingDAO {
 	
 	Sighting findById(int id);
 	Sighting create(Sighting sighting);
+	boolean deleteById(int id);
 
 }
