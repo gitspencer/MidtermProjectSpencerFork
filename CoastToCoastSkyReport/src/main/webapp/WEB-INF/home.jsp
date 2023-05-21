@@ -21,7 +21,7 @@
 			<em>None</em>
 		</c:if>
 		<img src="${ sighting.pictureUrl}" alt="sightingImage" width="300" height="200"><br> 
-		<a href="sighting.do?pid=${sighting.id}">${sighting.title} </a><br>
+		<a href="sightingById.do?id=${sighting.id}">${sighting.title} </a><br>
 		<ul>
 			<li>${ sighting.sightingDate}   </li>
 			<li>${ sighting.description}   </li>
