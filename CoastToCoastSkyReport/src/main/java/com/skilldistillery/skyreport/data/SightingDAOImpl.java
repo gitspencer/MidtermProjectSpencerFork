@@ -14,16 +14,16 @@ import com.skilldistillery.skyreport.entities.Sighting;
 
 @Service
 @Transactional
-public class SightingDAOImpl implements SightingDAO{
-	
+public class SightingDAOImpl implements SightingDAO {
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Sighting findById(int id) {
 		return em.find(Sighting.class, id);
 	}
-	
+
 	@Override
 	public Sighting create(Sighting sighting) {
 		Location location = new Location();
@@ -41,7 +41,7 @@ public class SightingDAOImpl implements SightingDAO{
 		em.persist(sighting);
 		return sighting;
 	}
-	
+
 	@Override
 	public boolean deleteById(int id) {
 		try {
@@ -55,14 +55,14 @@ public class SightingDAOImpl implements SightingDAO{
 		}
 
 	}
-	
+
 	@Override
-	public List<Sighting> viewSightingByUserId(int id){
-		
+	public List<Sighting> viewSightingByUserId(int id) {
+
 		String jpql = "SELECT s FROM Sighting s WHERE s.userId = :userId AND s.enabled = true";
-		
+
 		List<Sighting> userSighting = em.createQuery(jpql, Sighting.class).setParameter("userId", id).getResultList();
-		
+
 		return userSighting;
 	}
 

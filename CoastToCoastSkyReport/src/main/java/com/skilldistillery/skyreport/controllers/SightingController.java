@@ -20,11 +20,11 @@ public class SightingController {
 
 	@Autowired
 	private SightingDAO sightingDAO;
-	
+
 	@GetMapping("sightingById.do")
 	public String getSighting(int id, Model model) {
 		Sighting sighting = sightingDAO.findById(id);
-		
+
 		model.addAttribute("sighting", sighting);
 		return "sightingById";
 	}
@@ -42,31 +42,24 @@ public class SightingController {
 		return "addedSighting";
 
 	}
-	
+
 	@GetMapping(path = "deleteSightingRouting.do")
 	public String routeToDeleteSighting(HttpSession session, Model model) {
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
-			
-		List<Sighting> sightings = sightingDAO.viewSightingByUserId(user.getId());
-		model.addAttribute("sightingList", sightings);
-		return "deleteSightingPage";
+			List<Sighting> sightings = sightingDAO.viewSightingByUserId(user.getId());
+			model.addAttribute("sightingList", sightings);
+			return "deleteSightingPage";
 		} else {
 			return "login";
 		}
-
 	}
-	
+
 	@RequestMapping(path = "deleteSightingPage.do", method = RequestMethod.POST)
 	public String deleteSighting(int id, Model model) {
-		if (sightingDAO.deleteById(id)) {
-			model.addAttribute("sighting", "Delete successful");
-			return "result";
-		} else {
-			model.addAttribute("sighting", "Delete unsuccessful");
-		}
+		boolean deleted = sightingDAO.deleteById(id);
+		model.addAttribute("deleted", deleted);
 		return "result";
-
 	}
 
 }

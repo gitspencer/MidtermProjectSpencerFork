@@ -37,7 +37,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public List<Sighting> findAll() {
-		String jpql = "SELECT s FROM Sighting s";
+		String jpql = "SELECT s FROM Sighting s WHERE s.enabled = true";
 		return em.createQuery(jpql, Sighting.class).getResultList();
 	}
 	
