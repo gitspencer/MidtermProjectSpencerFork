@@ -39,12 +39,6 @@ public class SightingController {
 	}
 	
 	@RequestMapping(path = "deleteSightingPage.do", method = RequestMethod.GET)
-	public String deleteSightingPage() {
-		return "deleteSightingPage";
-	
-	}
-	
-	@RequestMapping(path = "deleteSightingPage.do", method = RequestMethod.GET)
 	public String deleteSighting(int id, Model model) {
 		if (sightingDAO.deleteById(id)) {
 			model.addAttribute("sighting", "Delete successful");
