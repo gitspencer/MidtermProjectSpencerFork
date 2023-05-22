@@ -63,14 +63,15 @@ public class SightingDAOImpl implements SightingDAO {
 	}
 
 	@Override
-	public boolean updateSighting(int sightingId, Sighting editedSighting) {
+	public Sighting updateSighting(int sightingId, Sighting editedSighting, Location location) {
 		Sighting sighting = em.find(Sighting.class, sightingId);
-		System.out.println("update sighting dao null");
 		if (sighting != null) {
-			System.out.println("update sighting dao");
 			sighting.setEnabled(true);
-			sighting.setUserId(editedSighting.getUserId());
-			sighting.setLocation(editedSighting.getLocation());
+			sighting.getLocation().setAddress(location.getAddress());
+			sighting.getLocation().setCity(location.getCity());
+			sighting.getLocation().setCountry(location.getCountry());
+			sighting.getLocation().setState(location.getState());
+			sighting.getLocation().setZipcode(location.getZipcode());
 			sighting.setKnownObject(editedSighting.getKnownObject());
 			sighting.setSightingDate(editedSighting.getSightingDate());
 			sighting.setTitle(editedSighting.getTitle());
@@ -78,16 +79,12 @@ public class SightingDAOImpl implements SightingDAO {
 			sighting.setDateCreated(editedSighting.getDateCreated());
 			sighting.setPictureUrl(editedSighting.getPictureUrl());
 			sighting.setLastUpdate(editedSighting.getLastUpdate());
-			em.persist(sighting);
-			System.out.println("return true " + sighting);
+			em.flush();
 			if (editedSighting != null) {
-
-				return true;
+				return sighting;
 			}
-
 		}
-		return false;
-
+		return sighting;
 	}
 
 }

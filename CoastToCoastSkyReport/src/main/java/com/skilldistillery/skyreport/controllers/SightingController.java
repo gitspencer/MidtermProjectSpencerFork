@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.skyreport.data.SightingDAO;
 import com.skilldistillery.skyreport.entities.Location;
@@ -66,40 +67,16 @@ public class SightingController {
 		return "updateSighting";
 	}
 
-	@RequestMapping(path = "updateSighting.do", method = RequestMethod.POST)
-	public String updateSighting(Sighting sighting, Model model) {
-		model.addAttribute(model)
-		
-		model.addAttribute("location", sightingDAO.createLocation(location));
-		model.addAttribute("sighting", sightingDAO.create(location, sighting));
-		return "updatedSighting";
+	@RequestMapping(path = "updatedSighting.do", method = RequestMethod.POST)
+	public String updateSighting(HttpSession session, @RequestParam("id") int id, Sighting sighting, Location location, Model model) {
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+			sighting = sightingDAO.updateSighting(id, sighting, location);
+			model.addAttribute("sighting", sighting);
+			return "updatedSighting";
+		} else {
+			return "login";
+		}
 	}
-//
-//	@RequestMapping(path = { "editShoe.do" }, method = RequestMethod.GET)
-//	public ModelAndView editShoe(int id) {
-//		Shoes shoe = shoeDao.findById(id);
-//		ModelAndView mv = new ModelAndView();
-//		mv.addObject("shoe", shoe);
-//		mv.setViewName("editShoe");
-//		return mv;
-//	}
-//
-//	@RequestMapping(path = { "SubmitEditShoe.do" }, method = RequestMethod.POST)
-//	public ModelAndView submitShoe(ModelAndView mv, Shoes shoe, @RequestParam int id, RedirectAttributes redir) {
-//		Shoes userEditedShoe = shoe;
-//		boolean updated = shoeDao.updateShoe(id, userEditedShoe);
-//		System.out.println(updated);
-//		mv.addObject("updated", updated);
-//		mv.setViewName("updateResult");
-//		return mv;
-//	}
-//
-//	@RequestMapping(path = { "updateShoe.do" }, method = RequestMethod.GET)
-//	public ModelAndView editFormRoute() {
-//		System.out.println("hitting the editformroute method");
-//		ModelAndView mv = new ModelAndView();
-//		mv.setViewName("updateResult");
-//		return mv;
-//	}
 
 }

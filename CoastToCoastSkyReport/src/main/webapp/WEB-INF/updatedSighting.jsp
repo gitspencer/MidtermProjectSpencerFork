@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Created Sighting Results</title>
+<title>Updated Sighting Results</title>
 </head>
 <body>
 <%@ include file="nav.jsp"%>
