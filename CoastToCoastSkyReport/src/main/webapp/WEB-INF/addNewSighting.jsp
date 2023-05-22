@@ -26,9 +26,24 @@
 			<label id="four">Image of Sighting: </label> 
 			<input type="text" name="pictureUrl" /> 
 			<br> 
-			<label id="five">Sighting Location: </label> 
-			<input type="text" name="locationId" /> 
+	
+		
+			<label id="five">Sighting Address: </label> 
+			<input type="text" name="address" /> 
 			<br> 
+			<label id="five">Sighting City: </label> 
+			<input type="text" name="city" /> 
+			<br> 
+			<label id="five">Sighting ZipCode: </label> 
+			<input type="text" name="zipcode" /> 
+			<br> 
+			<label id="five">Sighting State: </label> 
+			<input type="text" name="state" /> 
+			<br> 
+			<label id="five">Sighting Country: </label> 
+			<input type="text" name="country" /> 
+			<br> 
+		
 			<input type="submit" value="addNewSighting" />
 		</fieldset>
 	</form>

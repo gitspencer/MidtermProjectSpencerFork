@@ -25,18 +25,18 @@ public class SightingDAOImpl implements SightingDAO {
 	}
 
 	@Override
-	public Sighting create(Sighting sighting) {
-		Location location = new Location();
+	public Location createLocation(Location location) {
+		em.persist(location);
+		return location;
+	}
+	
+	
+	@Override
+	public Sighting create(Location location, Sighting sighting) {
 		LocalDate ldt = LocalDate.now();
 		sighting.setUserId(1);
 		sighting.setSightingDate(ldt);
-		location.setAddress("303 Main st.");
-		location.setCity("ABQ");
-		location.setZipcode("87115");
-		location.setState("New Mexico");
-		location.setCountry("United States");
 		sighting.setEnabled(true);
-		em.persist(location);
 		sighting.setLocation(location);
 		em.persist(sighting);
 		return sighting;
