@@ -31,16 +31,16 @@
 			<label id="five">Sighting Address: </label> 
 			<input type="text" name="address" /> 
 			<br> 
-			<label id="five">Sighting City: </label> 
+			<label id="six">Sighting City: </label> 
 			<input type="text" name="city" /> 
 			<br> 
-			<label id="five">Sighting ZipCode: </label> 
+			<label id="seven">Sighting ZipCode: </label> 
 			<input type="text" name="zipcode" /> 
 			<br> 
-			<label id="five">Sighting State: </label> 
+			<label id="eight">Sighting State: </label> 
 			<input type="text" name="state" /> 
 			<br> 
-			<label id="five">Sighting Country: </label> 
+			<label id="nine">Sighting Country: </label> 
 			<input type="text" name="country" /> 
 			<br> 
 		

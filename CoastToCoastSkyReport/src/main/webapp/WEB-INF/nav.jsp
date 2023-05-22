@@ -22,6 +22,7 @@
 	</c:when>
 	<c:otherwise>			
 	  <li> <a href="login.do">Login</a> </li>
+	  <li> <a href="createAccount.do">Create Account</a> </li>
 	</c:otherwise>
 	</c:choose>
 </ul>

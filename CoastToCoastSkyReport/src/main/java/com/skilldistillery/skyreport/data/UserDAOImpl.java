@@ -40,6 +40,18 @@ public class UserDAOImpl implements UserDAO {
 		String jpql = "SELECT s FROM Sighting s WHERE s.enabled = true";
 		return em.createQuery(jpql, Sighting.class).getResultList();
 	}
-	
 
+	@Override
+	public User create(Location location, User user) {
+		em.persist(location);
+		user.setLocation(location);
+		em.persist(user);
+		return user;
+	}
+
+	@Override
+	public Location createLocation(Location location) {
+		em.persist(location);
+		return location;
+	}
 }

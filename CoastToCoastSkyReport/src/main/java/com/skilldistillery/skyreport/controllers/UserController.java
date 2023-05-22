@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.skyreport.data.UserDAO;
+import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;
 
@@ -38,7 +39,7 @@ public class UserController {
 			viewName = "account";
 			session.setAttribute("loggedInUser", authenticatedUser);
 		} else {
-			viewName = "login";
+			viewName = "createAccount";
 		}
 		return viewName;
 	}
@@ -48,5 +49,20 @@ public class UserController {
 		session.removeAttribute("loggedInUser");
 		return "home";
 	}
-
+	@GetMapping(path = "createAccount.do")
+	public String routeToCreate() {
+		return "createAccount";
+	}
+	@RequestMapping(path = "createAccount.do", method = RequestMethod.POST)
+	public String create(Location location, User user, Model model, HttpSession session) {
+		try {
+			User newUser = userDAO.create(location, user);
+			session.setAttribute("loggedInUser", newUser);
+			return "account";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return "createAccount";
+		}
+	}
 }

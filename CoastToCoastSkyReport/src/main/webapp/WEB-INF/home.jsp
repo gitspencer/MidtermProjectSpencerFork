@@ -12,9 +12,7 @@
 	<h1>Coast to Coast Sky Report - Home Page</h1>
 
 	${SMOKETEST}
-
-
-
+	
 	<h2>Most Recent Sightings</h2>
 	<c:forEach var="sighting" items="${sightingList}">
 		<c:if test="${empty sightingList }">
