@@ -1,6 +1,7 @@
 package com.skilldistillery.skyreport.data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
+import com.skilldistillery.skyreport.entities.User;
 
 @Service
 @Transactional
@@ -51,6 +53,16 @@ public class SightingDAOImpl implements SightingDAO{
 			return false;
 		}
 
+	}
+	
+	@Override
+	public List<Sighting> viewSightingByUserId(User id){
+		
+		String jpql = "SELECT s FROM Sighting s WHERE id = :userId";
+		
+		List<Sighting> userSighting = em.createQuery(jpql, Sighting.class).setParameter("userId", id).getResultList();
+		
+		return userSighting;
 	}
 
 }
