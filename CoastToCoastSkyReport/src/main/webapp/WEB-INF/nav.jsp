@@ -17,6 +17,7 @@
 	  <li> <a href="account.do">Account</a> </li>
 	  <li> <a href="logout.do">Logout</a> </li>
 	  <li> <a href="addNewSighting.do">Report a Sighting</a> </li>
+	  <li> <a href="deleteSightingRouting.do">Delete a Sighting</a> </li>
 			
 	</c:when>
 	<c:otherwise>			

@@ -62,6 +62,8 @@ public class Sighting {
 
 	@OneToMany(mappedBy = "sighting")
 	private List<Comment> comments;
+	
+	private boolean enabled;
 
 	public Sighting() {
 		super();
@@ -255,6 +257,20 @@ public class Sighting {
 			;
 		sightingImage.remove(sightingImag);
 		sightingImag.setSighting(this);
+	}
+	
+	
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
 	}
 
 	@Override

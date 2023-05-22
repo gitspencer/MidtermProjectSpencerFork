@@ -10,6 +10,6 @@ public interface SightingDAO {
 	Sighting findById(int id);
 	Sighting create(Sighting sighting);
 	boolean deleteById(int id);
-	List<Sighting> viewSightingByUserId(User id);
+	List<Sighting> viewSightingByUserId(int id);
 
 }

@@ -11,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
-import com.skilldistillery.skyreport.entities.User;
 
 @Service
 @Transactional
@@ -36,6 +35,7 @@ public class SightingDAOImpl implements SightingDAO{
 		location.setZipcode("87115");
 		location.setState("New Mexico");
 		location.setCountry("United States");
+		sighting.setEnabled(true);
 		em.persist(location);
 		sighting.setLocation(location);
 		em.persist(sighting);
@@ -46,7 +46,8 @@ public class SightingDAOImpl implements SightingDAO{
 	public boolean deleteById(int id) {
 		try {
 			Sighting sighting = em.find(Sighting.class, id);
-			em.remove(sighting);
+//			em.remove(sighting);
+			sighting.setEnabled(false);
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -56,9 +57,9 @@ public class SightingDAOImpl implements SightingDAO{
 	}
 	
 	@Override
-	public List<Sighting> viewSightingByUserId(User id){
+	public List<Sighting> viewSightingByUserId(int id){
 		
-		String jpql = "SELECT s FROM Sighting s WHERE id = :userId";
+		String jpql = "SELECT s FROM Sighting s WHERE s.userId = :userId AND s.enabled = true";
 		
 		List<Sighting> userSighting = em.createQuery(jpql, Sighting.class).setParameter("userId", id).getResultList();
 		

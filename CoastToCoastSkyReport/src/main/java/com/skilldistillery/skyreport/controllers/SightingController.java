@@ -1,5 +1,9 @@
 package com.skilldistillery.skyreport.controllers;
 
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.skilldistillery.skyreport.data.SightingDAO;
 import com.skilldistillery.skyreport.entities.Sighting;
+import com.skilldistillery.skyreport.entities.User;
 
 @Controller
 public class SightingController {
@@ -38,7 +43,25 @@ public class SightingController {
 
 	}
 	
-	@RequestMapping(path = "deleteSightingPage.do", method = RequestMethod.GET)
+	@GetMapping(path = "deleteSightingRouting.do")
+	public String routeToDeleteSighting(HttpSession session, Model model) {
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+			
+		System.out.println("FIRST SYSOUT*******************");
+		List<Sighting> sightings = sightingDAO.viewSightingByUserId(user.getId());
+		model.addAttribute("sightingList", sightings);
+		System.out.println("USER SYSOUT*******************" + user);
+		System.out.println("USERid SYSOUT*******************" + user.getId());
+		System.out.println("SECOND SYSOUT*******************" + sightings);
+		return "deleteSightingPage";
+		} else {
+			return "login";
+		}
+
+	}
+	
+	@RequestMapping(path = "deleteSightingPage.do", method = RequestMethod.POST)
 	public String deleteSighting(int id, Model model) {
 		if (sightingDAO.deleteById(id)) {
 			model.addAttribute("sighting", "Delete successful");
