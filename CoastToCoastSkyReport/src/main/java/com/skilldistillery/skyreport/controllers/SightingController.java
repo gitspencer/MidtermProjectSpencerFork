@@ -60,4 +60,46 @@ public class SightingController {
 		return "result";
 	}
 
+	@GetMapping(path = "updateSighting.do")
+	public String routeToUpdateSighting(int id, Sighting sighting, Model model) {
+		model.addAttribute("sighting", sightingDAO.findById(id));
+		return "updateSighting";
+	}
+
+	@RequestMapping(path = "updateSighting.do", method = RequestMethod.POST)
+	public String updateSighting(Sighting sighting, Model model) {
+		model.addAttribute(model)
+		
+		model.addAttribute("location", sightingDAO.createLocation(location));
+		model.addAttribute("sighting", sightingDAO.create(location, sighting));
+		return "updatedSighting";
+	}
+//
+//	@RequestMapping(path = { "editShoe.do" }, method = RequestMethod.GET)
+//	public ModelAndView editShoe(int id) {
+//		Shoes shoe = shoeDao.findById(id);
+//		ModelAndView mv = new ModelAndView();
+//		mv.addObject("shoe", shoe);
+//		mv.setViewName("editShoe");
+//		return mv;
+//	}
+//
+//	@RequestMapping(path = { "SubmitEditShoe.do" }, method = RequestMethod.POST)
+//	public ModelAndView submitShoe(ModelAndView mv, Shoes shoe, @RequestParam int id, RedirectAttributes redir) {
+//		Shoes userEditedShoe = shoe;
+//		boolean updated = shoeDao.updateShoe(id, userEditedShoe);
+//		System.out.println(updated);
+//		mv.addObject("updated", updated);
+//		mv.setViewName("updateResult");
+//		return mv;
+//	}
+//
+//	@RequestMapping(path = { "updateShoe.do" }, method = RequestMethod.GET)
+//	public ModelAndView editFormRoute() {
+//		System.out.println("hitting the editformroute method");
+//		ModelAndView mv = new ModelAndView();
+//		mv.setViewName("updateResult");
+//		return mv;
+//	}
+
 }

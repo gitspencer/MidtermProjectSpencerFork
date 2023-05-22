@@ -26,6 +26,7 @@
 				<li>${ sighting.lastUpdate}</li>
 			</ul>
 			<button>Delete Sighting</button>
+			<a href="updateSighting.do?id=${sighting.id}">Edit Sighting Details</a>
 
 		</form>
 	</c:forEach>

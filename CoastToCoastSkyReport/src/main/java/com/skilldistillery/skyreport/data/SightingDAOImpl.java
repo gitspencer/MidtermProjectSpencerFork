@@ -29,8 +29,7 @@ public class SightingDAOImpl implements SightingDAO {
 		em.persist(location);
 		return location;
 	}
-	
-	
+
 	@Override
 	public Sighting create(Location location, Sighting sighting) {
 		LocalDate ldt = LocalDate.now();
@@ -58,12 +57,37 @@ public class SightingDAOImpl implements SightingDAO {
 
 	@Override
 	public List<Sighting> viewSightingByUserId(int id) {
-
 		String jpql = "SELECT s FROM Sighting s WHERE s.userId = :userId AND s.enabled = true";
-
 		List<Sighting> userSighting = em.createQuery(jpql, Sighting.class).setParameter("userId", id).getResultList();
-
 		return userSighting;
+	}
+
+	@Override
+	public boolean updateSighting(int sightingId, Sighting editedSighting) {
+		Sighting sighting = em.find(Sighting.class, sightingId);
+		System.out.println("update sighting dao null");
+		if (sighting != null) {
+			System.out.println("update sighting dao");
+			sighting.setEnabled(true);
+			sighting.setUserId(editedSighting.getUserId());
+			sighting.setLocation(editedSighting.getLocation());
+			sighting.setKnownObject(editedSighting.getKnownObject());
+			sighting.setSightingDate(editedSighting.getSightingDate());
+			sighting.setTitle(editedSighting.getTitle());
+			sighting.setDescription(editedSighting.getDescription());
+			sighting.setDateCreated(editedSighting.getDateCreated());
+			sighting.setPictureUrl(editedSighting.getPictureUrl());
+			sighting.setLastUpdate(editedSighting.getLastUpdate());
+			em.persist(sighting);
+			System.out.println("return true " + sighting);
+			if (editedSighting != null) {
+
+				return true;
+			}
+
+		}
+		return false;
+
 	}
 
 }

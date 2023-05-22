@@ -12,5 +12,6 @@ public interface SightingDAO {
 	List<Sighting> viewSightingByUserId(int id);
 	Location createLocation(Location location);
 	Sighting create(Location location, Sighting sighting);
+	boolean updateSighting(int sightingId, Sighting editedSighting);
 
 }
