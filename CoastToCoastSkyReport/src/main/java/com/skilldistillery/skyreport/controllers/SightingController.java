@@ -48,12 +48,8 @@ public class SightingController {
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
 			
-		System.out.println("FIRST SYSOUT*******************");
 		List<Sighting> sightings = sightingDAO.viewSightingByUserId(user.getId());
 		model.addAttribute("sightingList", sightings);
-		System.out.println("USER SYSOUT*******************" + user);
-		System.out.println("USERid SYSOUT*******************" + user.getId());
-		System.out.println("SECOND SYSOUT*******************" + sightings);
 		return "deleteSightingPage";
 		} else {
 			return "login";
