@@ -1,5 +1,6 @@
 package com.skilldistillery.skyreport.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -30,9 +31,22 @@ public class SightingController {
 		return "sightingById";
 	}
 
+	@RequestMapping(path = "submitKeyword.do", method = RequestMethod.POST)
+	public String getSightingByKeyword(String keyword, Model model) {
+		List<Sighting> sightingList = sightingDAO.viewSightingByKeyword(keyword);
+		model.addAttribute("sightingsList", sightingList);
+		System.out.println(sightingList);
+		return "sightingsList";
+	}
+
 	@GetMapping(path = "addNewSighting.do")
 	public String routeToSighting() {
 		return "addNewSighting";
+	}
+
+	@GetMapping(path = "sightingByKeyword.do")
+	public String routeToSearch() {
+		return "sightingByKeyword";
 	}
 
 	@RequestMapping(path = "addNewSighting.do", method = RequestMethod.POST)
@@ -68,7 +82,8 @@ public class SightingController {
 	}
 
 	@RequestMapping(path = "updatedSighting.do", method = RequestMethod.POST)
-	public String updateSighting(HttpSession session, @RequestParam("id") int id, Sighting sighting, Location location, Model model) {
+	public String updateSighting(HttpSession session, @RequestParam("id") int id, Sighting sighting, Location location,
+			Model model) {
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
 			sighting = sightingDAO.updateSighting(id, sighting, location);

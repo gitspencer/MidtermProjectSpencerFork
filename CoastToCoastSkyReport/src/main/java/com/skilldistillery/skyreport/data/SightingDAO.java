@@ -13,5 +13,6 @@ public interface SightingDAO {
 	Location createLocation(Location location);
 	Sighting create(Location location, Sighting sighting);
 	Sighting updateSighting(int sightingId, Sighting editedSighting, Location location);
+	List<Sighting> viewSightingByKeyword(String keyword);
 
 }

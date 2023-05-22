@@ -18,11 +18,13 @@
 	  <li> <a href="logout.do">Logout</a> </li>
 	  <li> <a href="addNewSighting.do">Report a Sighting</a> </li>
 	  <li> <a href="deleteSightingRouting.do">Delete a Sighting</a> </li>
+	  <li> <a href="sightingByKeyword.do">Lookup a Sighting</a> </li>
 			
 	</c:when>
 	<c:otherwise>			
 	  <li> <a href="login.do">Login</a> </li>
 	  <li> <a href="createAccount.do">Create Account</a> </li>
+	  <li> <a href="sightingByKeyword.do">Lookup a Sighting</a> </li>
 	</c:otherwise>
 	</c:choose>
 </ul>

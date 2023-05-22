@@ -1,6 +1,7 @@
 package com.skilldistillery.skyreport.data;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
@@ -23,6 +25,10 @@ public class SightingDAOImpl implements SightingDAO {
 	public Sighting findById(int id) {
 		return em.find(Sighting.class, id);
 	}
+//	@Override
+//	public Sighting findByKeyword(String keyword) {
+//		return em.find(Sighting.class, keyword);
+//	}
 
 	@Override
 	public Location createLocation(Location location) {
@@ -60,6 +66,15 @@ public class SightingDAOImpl implements SightingDAO {
 		String jpql = "SELECT s FROM Sighting s WHERE s.userId = :userId AND s.enabled = true";
 		List<Sighting> userSighting = em.createQuery(jpql, Sighting.class).setParameter("userId", id).getResultList();
 		return userSighting;
+	}
+	@Override
+	public List<Sighting> viewSightingByKeyword(String keyword) {
+		String jpql = "SELECT s FROM Sighting s WHERE s.title LIKE :keyword OR s.description LIKE :keyword";
+		List<Sighting> keywordSighting = em.createQuery(jpql, Sighting.class)
+				.setParameter("keyword", "%"+ keyword +"%")
+				.getResultList();
+		System.out.println(keywordSighting);
+		return keywordSighting;
 	}
 
 	@Override
