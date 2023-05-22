@@ -62,7 +62,7 @@ public class UserController {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			return "createAccount";
+			return "createAccountError";
 		}
 	}
 }

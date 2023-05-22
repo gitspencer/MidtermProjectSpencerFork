@@ -10,13 +10,7 @@
 <body>
 <%--Edit the file nav.jsp to change nav links --%>
 	<%@ include file="nav.jsp"%>
-	
-Invalid Login
 
-<a href="login.do">Retry Login</a><br>	
-	
-OR	
-	
 	<h2>Create Account</h2>
 	<form action="createAccount.do" method="post">
 		<fieldset class="items add">
@@ -56,6 +50,7 @@ OR
 			<input type="hidden" name="enabled" value="1" /> 
 			<input type="hidden" name="role" value="User" /> 
 			</fieldset>
+			
 						<input type="submit" value="Create Account" />
 	</form>
 </body>
