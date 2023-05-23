@@ -3,9 +3,10 @@ body {
 	background-color: #060E02;
 	color: #4ecf13; 
 	font-family: "Lucida Console", "Courier New", monospace;
+	text-align: center;
 }
 
-.icons {
+img {
 	border: 8px solid #2f302f;
 	border-radius: 10px;
 	opacity: .9;

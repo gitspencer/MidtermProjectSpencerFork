@@ -11,7 +11,7 @@
 	integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
 	crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<link rel="stylesheet" href="main.css">
+<link rel="stylesheet" type="text/css" href="main.css">
 <title>Navigation Bar</title>
 </head>
 <body>
@@ -40,8 +40,6 @@
 							href="addNewSighting.do">Report Sightings</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="deleteSightingRouting.do">Delete Sightings</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="sightingByKeyword.do">Search Sightings</a></li>
 					</ul>
 					<form class="form-inline my-2 my-lg-0" action=submitKeyword.do method="POST">
 						<input class="form-control mr-sm-2" type="text" name="keyword"
@@ -68,8 +66,6 @@
 							href="createAccount.do">Create Account</a></li>
 						<li class="nav-item"><a class="nav-link"
 							href="sightingsList.do">All Sightings</a></li>
-						<li class="nav-item"><a class="nav-link"
-							href="sightingByKeyword.do">Search Sightings</a></li>
 					</ul>
 					<form class="form-inline my-2 my-lg-0" action=submitKeyword.do method="POST">
 						<input class="form-control mr-sm-2" type="text" name="keyword"
