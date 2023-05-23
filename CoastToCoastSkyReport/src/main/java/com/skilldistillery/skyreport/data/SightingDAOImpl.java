@@ -1,7 +1,6 @@
 package com.skilldistillery.skyreport.data;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,10 +8,11 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.skilldistillery.skyreport.entities.Comment;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
+import com.skilldistillery.skyreport.entities.User;
 
 @Service
 @Transactional
@@ -100,6 +100,28 @@ public class SightingDAOImpl implements SightingDAO {
 			}
 		}
 		return sighting;
+	}
+	
+	@Override
+	public Comment createComment(Comment comment, int sightingId, User user) {
+		Sighting sighting = em.find(Sighting.class, sightingId);
+	
+		sighting.addComment(comment);
+		
+		
+		comment.setSighting(sighting);
+		//user.addComment(comment);
+		comment.setUser(user);
+
+		em.persist(comment);
+		return comment;
+	}
+	
+	@Override
+	public List<Comment> getCommentList(int sightingId) {
+		String jpql = "SELECT s FROM Comment s WHERE s.sightingId = :sightingId";
+		List<Comment> comments =em.createQuery(jpql, Comment.class).setParameter("sightingId", sightingId).getResultList();
+		return comments;
 	}
 
 }

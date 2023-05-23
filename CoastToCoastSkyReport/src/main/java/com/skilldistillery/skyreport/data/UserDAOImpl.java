@@ -1,6 +1,5 @@
 package com.skilldistillery.skyreport.data;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +8,7 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
+import com.skilldistillery.skyreport.entities.Comment;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;
@@ -54,4 +54,7 @@ public class UserDAOImpl implements UserDAO {
 		em.persist(location);
 		return location;
 	}
+	
+	
+
 }

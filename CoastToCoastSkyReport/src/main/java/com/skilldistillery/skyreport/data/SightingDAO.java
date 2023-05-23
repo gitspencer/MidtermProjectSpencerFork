@@ -2,8 +2,10 @@ package com.skilldistillery.skyreport.data;
 
 import java.util.List;
 
+import com.skilldistillery.skyreport.entities.Comment;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
+import com.skilldistillery.skyreport.entities.User;
 
 public interface SightingDAO {
 	
@@ -14,5 +16,8 @@ public interface SightingDAO {
 	Sighting create(Location location, Sighting sighting);
 	Sighting updateSighting(int sightingId, Sighting editedSighting, Location location);
 	List<Sighting> viewSightingByKeyword(String keyword);
+	Comment createComment(Comment comment, int sightingId, User user);
+	List<Comment> getCommentList(int sightingId);
+	
 
 }

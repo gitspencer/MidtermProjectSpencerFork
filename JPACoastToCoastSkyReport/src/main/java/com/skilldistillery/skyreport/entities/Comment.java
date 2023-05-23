@@ -14,6 +14,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 @Entity
 public class Comment {
 	@Id
@@ -29,6 +31,7 @@ public class Comment {
 	@OneToMany(mappedBy = "originalComment")
 	private List<Comment> replies;
 
+	@CreationTimestamp
 	@Column(name = "comment_date")
 	private LocalDateTime commentDate;
 

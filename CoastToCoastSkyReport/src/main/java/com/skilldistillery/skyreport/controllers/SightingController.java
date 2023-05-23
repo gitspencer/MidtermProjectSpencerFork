@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.skyreport.data.SightingDAO;
+import com.skilldistillery.skyreport.entities.Comment;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;
@@ -28,6 +29,7 @@ public class SightingController {
 	public String getSighting(int id, Model model) {
 		Sighting sighting = sightingDAO.findById(id);
 		model.addAttribute("sighting", sighting);
+		
 		return "sightingById";
 	}
 
@@ -92,6 +94,30 @@ public class SightingController {
 		} else {
 			return "login";
 		}
+	}
+
+	@GetMapping(path = "createSightingComment.do")
+	public String comment(HttpSession session, Comment comment, int sightingId, Model model) {
+
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+			Comment userComment = sightingDAO.createComment(comment, sightingId, user);
+			Sighting sighting = sightingDAO.findById(sightingId);
+			model.addAttribute("sighting", sighting);
+			
+			return "sightingById";
+		} else {
+			return "login";
+		}
+
+	}
+	@RequestMapping(path= "getSightingList.do", method = RequestMethod.POST) 
+	public String getComments(int sightingId, Model model) {
+		List<Comment> comments = sightingDAO.getCommentList(sightingId);
+		model.addAttribute("commentList", comments);
+		System.out.println( "************************" + sightingId);
+		return "sightingById";
+		
 	}
 
 }

@@ -29,10 +29,24 @@
 
 
 	</div>
-
 <div class="map-container"> <iframe src="https://www.google.com/maps?q=${sighting.location.zipcode }&z=9&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen> </iframe> </div> 
 	
-	
+<form action="createSightingComment.do">
+<input type="hidden" value="${sighting.id }" name= "sightingId">
+<textarea name="content" cols="50" rows="10"></textarea>
+<button type= "submit" name="comment">Comment
+</button>
 
+
+
+
+</form>
+<c:forEach var="comment" items="${commentList}">
+		<form class="container" action="getSightingList.do" method="POST">
+		     <input type="hidden" value="${sighting.id }" name= "sightingId">
+		       ${comment}
+
+		</form>
+	</c:forEach>
 </body>
 </html>
