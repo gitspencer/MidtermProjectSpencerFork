@@ -18,18 +18,16 @@
 	
 	<h1>UDPATE ME Coast to Coast Sky Report - Home Page</h1>
 	
-	<h2>Most Recent Sightings</h2>
+	<h2>Top Sightings</h2>
 	<c:forEach var="sighting" items="${sightingList}">
 		<c:if test="${empty sightingList }">
 			<em>None</em>
 		</c:if>
 		<img src="${ sighting.pictureUrl}" alt="sightingImage" width="300" height="200"><br> 
 	<div class="textbox">
-		<a href="sightingById.do?id=${sighting.id}">${sighting.title} </a><br>
-			${ sighting.sightingDate}   <br>
+		<h6><a href="sightingById.do?id=${sighting.id}">${sighting.title} </a></h6>
+			Sighting Date: ${ sighting.sightingDate}   <br>
 			${ sighting.description}   <br>
-			${ sighting.dateCreated}   <br>
-			${ sighting.lastUpdate}   <br>
 	</div>
 	</c:forEach>
 
