@@ -36,7 +36,7 @@ public class UserController {
 		String viewName = "";
 		User authenticatedUser = userDAO.findByUsernameAndPass(user.getUsername(), user.getPassword());
 		if (authenticatedUser != null) {
-			viewName = "account";
+			viewName = "redirect:account.do";
 			session.setAttribute("loggedInUser", authenticatedUser);
 		} else {
 			viewName = "createAccount";
@@ -58,7 +58,7 @@ public class UserController {
 		try {
 			User newUser = userDAO.create(location, user);
 			session.setAttribute("loggedInUser", newUser);
-			return "account";
+			return "home";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

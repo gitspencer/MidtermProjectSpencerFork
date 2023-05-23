@@ -1,6 +1,5 @@
 package com.skilldistillery.skyreport.controllers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -111,7 +111,7 @@ public class SightingController {
 		}
 
 	}
-	@RequestMapping(path= "getSightingList.do", method = RequestMethod.POST) 
+	@PostMapping(path= "getSightingList.do") 
 	public String getComments(int sightingId, Model model) {
 		List<Comment> comments = sightingDAO.getCommentList(sightingId);
 		model.addAttribute("commentList", comments);
@@ -119,5 +119,6 @@ public class SightingController {
 		return "sightingById";
 		
 	}
+	
 
 }

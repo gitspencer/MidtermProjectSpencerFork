@@ -119,7 +119,7 @@ public class SightingDAOImpl implements SightingDAO {
 	
 	@Override
 	public List<Comment> getCommentList(int sightingId) {
-		String jpql = "SELECT s FROM Comment s WHERE s.sightingId = :sightingId";
+		String jpql = "SELECT s FROM Comment s WHERE s.sighting.id = :sightingId";
 		List<Comment> comments =em.createQuery(jpql, Comment.class).setParameter("sightingId", sightingId).getResultList();
 		return comments;
 	}
