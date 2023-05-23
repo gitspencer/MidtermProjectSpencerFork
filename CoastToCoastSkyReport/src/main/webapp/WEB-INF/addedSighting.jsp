@@ -15,15 +15,21 @@
 <c:choose>
 		<c:when test="${! empty sighting}">
 			
-				
+				<fieldset class="items add">
 		
 				<ul>
+					<li><div class="grow">Sighting Title: ${sighting.pictureUrl}</div></li>
 					<li><div class="grow">Sighting Title: ${sighting.title}</div></li>
 					<li><div class="grow">Date of Sighting: ${sighting.sightingDate}</div></li>
-					<li><div class="grow">Description: ${sighting.description}</div></li>
+					<li><div class="grow">Sighting Title: ${sighting.description}</div></li>
+					<li><div class="grow">Address: ${sighting.location.address}</div></li>
+					<li><div class="grow">City: ${sighting.location.city}</div></li>
+					<li><div class="grow">Zipcode: ${sighting.location.zipcode}</div></li>
+					<li><div class="grow">State: ${sighting.location.state}</div></li>
+					<li><div class="grow">Country: ${sighting.location.country}</div></li>
 				</ul>
 			
-				
+				</fieldset>
 			
 		</c:when>
 		

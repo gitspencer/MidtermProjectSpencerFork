@@ -17,17 +17,12 @@
 			<label id="one"> Sighting Title: </label> 
 			<input type="text" name="title" required /> 
 			<br> 
-			<label id="two"> Sighting Date: </label> 
-			<input type="date" name="sightingDate" /> 
-			<br> 
 			<label id="three"> Description: </label> 
 			<input type="text" name="description" required /> 
 			<br> 
 			<label id="four">Image of Sighting: </label> 
 			<input type="text" name="pictureUrl" /> 
 			<br> 
-	
-		
 			<label id="five">Sighting Address: </label> 
 			<input type="text" name="address" /> 
 			<br> 

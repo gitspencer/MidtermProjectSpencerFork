@@ -47,7 +47,7 @@ public class UserController {
 	@RequestMapping(path = "logout.do")
 	public String logout(HttpSession session) {
 		session.removeAttribute("loggedInUser");
-		return "home";
+		return "redirect:home.do";
 	}
 	@GetMapping(path = "createAccount.do")
 	public String routeToCreate() {
