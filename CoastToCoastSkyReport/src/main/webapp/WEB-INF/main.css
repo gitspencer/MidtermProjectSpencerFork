@@ -1,0 +1,39 @@
+@charset "UTF-8";
+body {
+	background-color: #060E02;
+	color: #4ecf13; 
+	font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.icons {
+	border: 8px solid #2f302f;
+	border-radius: 10px;
+	opacity: .9;
+}
+
+.background-image {
+	background-image: url(https://images.unsplash.com/photo-1612512836264-5e58fab88bf0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+	background-blend-mode: soft-light;
+}
+
+.textbox {
+	background-color: #060E02;
+	border: 7px solid #060E02;
+	border-radius: 10px;
+	mix-blend-mode: screen;
+}
+
+h6 {
+	font-weight: 600;
+}
+
+.btn-dark {
+	background-color: #2f302f !important;
+	color: #4ecf13 !important; 
+}
+

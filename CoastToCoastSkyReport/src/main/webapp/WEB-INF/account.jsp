@@ -5,17 +5,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" href="main.css">
 <title>My Account View</title>
 </head>
 <body>
-	<h1>My Account View</h1>
-
-
-	<%--Edit the file nav.jsp to change nav links --%>
 	<%@ include file="nav.jsp"%>
 
-
-	<%-- Output user details --%>
+	<h1>My Account View</h1>
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser}">
 			<h2>Your Account Details</h2>
@@ -51,6 +49,7 @@
 			<br> "Not Logged In."
 		</c:otherwise>
 	</c:choose>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 
 </body>
 </html>

@@ -25,6 +25,13 @@ public class SightingDAOImpl implements SightingDAO {
 	public Sighting findById(int id) {
 		return em.find(Sighting.class, id);
 	}
+
+	@Override
+	public List<Sighting> findAllSightings() {
+		String jpql = "SELECT s FROM Sighting s WHERE s.enabled = true";
+		return em.createQuery(jpql, Sighting.class).getResultList();
+	}
+	
 //	@Override
 //	public Sighting findByKeyword(String keyword) {
 //		return em.find(Sighting.class, keyword);

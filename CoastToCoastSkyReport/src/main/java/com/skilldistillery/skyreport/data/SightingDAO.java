@@ -18,6 +18,7 @@ public interface SightingDAO {
 	List<Sighting> viewSightingByKeyword(String keyword);
 	Comment createComment(Comment comment, int sightingId, User user);
 	List<Comment> getCommentList(int sightingId);
+	List<Sighting> findAllSightings();
 	
 
 }

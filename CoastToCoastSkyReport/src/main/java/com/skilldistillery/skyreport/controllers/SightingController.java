@@ -1,5 +1,6 @@
 package com.skilldistillery.skyreport.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -37,13 +38,19 @@ public class SightingController {
 	public String getSightingByKeyword(String keyword, Model model) {
 		List<Sighting> sightingList = sightingDAO.viewSightingByKeyword(keyword);
 		model.addAttribute("sightingsList", sightingList);
-		System.out.println(sightingList);
 		return "sightingsList";
 	}
 
 	@GetMapping(path = "addNewSighting.do")
 	public String routeToSighting() {
 		return "addNewSighting";
+	}
+
+	@GetMapping(path = "sightingsList.do")
+	public String routeToAllSighting(Model model) {
+		List<Sighting> sightingList = sightingDAO.findAllSightings();
+		model.addAttribute("sightingsList", sightingList);
+		return "sightingsList";
 	}
 
 	@GetMapping(path = "sightingByKeyword.do")
