@@ -25,7 +25,7 @@
 		</c:if>
 		<img src="${ sighting.pictureUrl}" alt="sightingImage" width="300" height="200"><br> 
 	<div class="textbox">
-		<h6><a href="sightingById.do?id=${sighting.id}">${sighting.title} </a></h6>
+		<h6><a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title} </a></h6>
 			Sighting Date: ${ sighting.sightingDate}   <br>
 			${ sighting.description}   <br>
 	</div>

@@ -24,7 +24,7 @@
 			<input type="hidden" name="id" value="${sighting.id }"> <img
 				src="${ sighting.pictureUrl}" alt="sightingImage" width="300"
 				height="200"><br> <a
-				href="sightingById.do?id=${sighting.id}">${sighting.title} </a><br>
+				href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title} </a><br>
 			<ul>
 				<li>${ sighting.sightingDate}</li>
 				<li>${ sighting.description}</li>

@@ -38,4 +38,14 @@ h6 {
 	color: #4ecf13 !important; 
 }
 
+.navbar-custom {
+	background-color: #464646;
+}
 
+.navbar-custom .navbar-brand {
+	color: #4ecf13;
+}
+
+.navbar-custom .nav-item .nav-link{
+	color: #4ecf13;
+}
