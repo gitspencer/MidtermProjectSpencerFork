@@ -13,7 +13,9 @@
 <body>
 <%@ include file="nav.jsp"%>
 <div style="min-height: 100vh" class="background-image">
-
+<div class="flier">
+<img src="https://pngimg.com/uploads/ufo/ufo_PNG71605.png"  >
+	</div>
 	<div class="container">
 	
 	<h2>Log In</h2>
