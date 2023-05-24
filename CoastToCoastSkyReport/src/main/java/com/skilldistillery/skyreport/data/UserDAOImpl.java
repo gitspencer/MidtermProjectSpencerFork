@@ -8,7 +8,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.stereotype.Service;
 
-import com.skilldistillery.skyreport.entities.Comment;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;

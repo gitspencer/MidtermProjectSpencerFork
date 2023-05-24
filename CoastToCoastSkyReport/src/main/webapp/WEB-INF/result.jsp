@@ -14,8 +14,8 @@
 <title>Deletion Results</title>
 </head>
 <body>
-<div class="background-image">
 <%@ include file="nav.jsp"%>
+<div style="min-height: 100vh" class="background-image">
 
 	<div class="container">
 	

@@ -21,8 +21,8 @@
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser }">
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarTogglerDemo01"
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarTogglerDemo01"
 					aria-controls="navbarTogglerDemo01" aria-expanded="false"
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -51,8 +51,8 @@
 		</c:when>
 		<c:otherwise>
 			<nav class="navbar navbar-expand-lg navbar-light bg-light">
-				<button class="navbar-toggler" type="button" data-toggle="collapse"
-					data-target="#navbarTogglerDemo01"
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+					data-bs-target="#navbarTogglerDemo01"
 					aria-controls="navbarTogglerDemo01" aria-expanded="false"
 					aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
@@ -74,7 +74,6 @@
 					</form>
 				</div>
 			</nav>
-
 		</c:otherwise>
 	</c:choose>
 
