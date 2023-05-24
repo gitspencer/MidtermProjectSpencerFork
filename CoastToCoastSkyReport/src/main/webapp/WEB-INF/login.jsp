@@ -17,14 +17,15 @@
 <img src="https://pngimg.com/uploads/ufo/ufo_PNG71605.png"  >
 	</div>
 	<div class="container">
-	
+	<br>
 	<h2>Log In</h2>
-	
+	<div class="textbox">
 	<form action="login.do" method="post">
 		<input type="text" name="username"> 
 		<input type="password" name="password" /> 
 		<input type="submit" value="Log In">
 	</form>
+	</div>
 	 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	</div>
 	</div>

@@ -126,7 +126,8 @@ public class SightingController {
 			Comment userComment = sightingDAO.createComment(comment, sightingId, user);
 			Sighting sighting = sightingDAO.findById(sightingId);
 			model.addAttribute("sighting", sighting);
-			
+			model.addAttribute("sighting", sighting);
+			model.addAttribute("user", user);
 			return "sightingById";
 		} else {
 			return "login";
@@ -146,7 +147,6 @@ public class SightingController {
 	public String getComments(int sightingId, Model model) {
 		List<Comment> comments = sightingDAO.getCommentList(sightingId);
 		model.addAttribute("commentList", comments);
-		System.out.println( "************************" + sightingId);
 		return "sightingById";
 		
 	}
