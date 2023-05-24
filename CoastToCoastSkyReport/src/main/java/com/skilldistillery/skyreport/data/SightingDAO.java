@@ -6,6 +6,7 @@ import com.skilldistillery.skyreport.entities.Comment;
 import com.skilldistillery.skyreport.entities.KnownObject;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
+import com.skilldistillery.skyreport.entities.SightingRating;
 import com.skilldistillery.skyreport.entities.User;
 
 public interface SightingDAO {
@@ -21,6 +22,7 @@ public interface SightingDAO {
 	List<Comment> getCommentList(int sightingId);
 	List<Sighting> findAllSightings();
 	KnownObject findKnownObjectById(int sightingId);
+	List<SightingRating> getSightingRatingsList(int sightingId);
 	
 
 }

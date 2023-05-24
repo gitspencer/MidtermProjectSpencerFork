@@ -13,6 +13,7 @@ import com.skilldistillery.skyreport.entities.Comment;
 import com.skilldistillery.skyreport.entities.KnownObject;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
+import com.skilldistillery.skyreport.entities.SightingRating;
 import com.skilldistillery.skyreport.entities.User;
 
 @Service
@@ -154,4 +155,12 @@ public class SightingDAOImpl implements SightingDAO {
 		
 	
 	}
+	@Override
+	public List<SightingRating> getSightingRatingsList(int sightingId) {
+		String jpql = "SELECT s FROM SightingRating s WHERE s.sighting.id = :sightingId";
+		List<SightingRating> ratings =em.createQuery(jpql, SightingRating.class).setParameter("sightingId", sightingId).getResultList();
+		return ratings;
+	}
+	
+
 }

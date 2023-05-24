@@ -14,29 +14,36 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.skyreport.data.SightingDAO;
-import com.skilldistillery.skyreport.entities.Category;
+import com.skilldistillery.skyreport.data.UserDAO;
 import com.skilldistillery.skyreport.entities.Comment;
 import com.skilldistillery.skyreport.entities.KnownObject;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
+import com.skilldistillery.skyreport.entities.SightingRating;
 import com.skilldistillery.skyreport.entities.User;
 
 @Controller
 public class SightingController {
 
 	@Autowired
+	private UserDAO userDAO;
+	
+	@Autowired
 	private SightingDAO sightingDAO;
 
 	@GetMapping("sightingById.do")
-	public String getSighting(int id, Model model) {
+	public String getSighting(int id, Model model, User user) {
 		Sighting sighting = sightingDAO.findById(id);
 		model.addAttribute("sighting", sighting);
 		List<Comment> comments = sightingDAO.getCommentList(id);
 		model.addAttribute("commentList", comments);
 		KnownObject knownObject  = sightingDAO.findKnownObjectById(id);
-		System.out.println("+++++++++++++++++++++++++++"+ knownObject + id);
 		model.addAttribute("knownObject", knownObject);
-		System.out.println("+++++++++++++++++++++++++++"+ knownObject);
+        User theUser = userDAO.findUserById(user.getId());
+        model.addAttribute("user", theUser);
+        List<SightingRating> ratings = sightingDAO.getSightingRatingsList(id);
+		model.addAttribute("sightingRatings", ratings);
+	
 		return "sightingById";
 	}
 
@@ -71,6 +78,10 @@ public class SightingController {
 		if (user != null) {
 			List<Sighting> sightings = sightingDAO.viewSightingByUserId(user.getId());
 			model.addAttribute("sightingList", sightings);
+			
+			List<Sighting> adminSightings = sightingDAO.findAllSightings();
+			model.addAttribute("adminSighting", adminSightings);
+			
 			return "deleteSightingPage";
 		} else {
 			return "login";
@@ -87,6 +98,10 @@ public class SightingController {
 	@GetMapping(path = "updateSighting.do")
 	public String routeToUpdateSighting(int id, Sighting sighting, Model model) {
 		model.addAttribute("sighting", sightingDAO.findById(id));
+		
+		Sighting adminSightings = sightingDAO.findById(id);
+		model.addAttribute("adminSighting", adminSightings);
+		
 		return "updateSighting";
 	}
 

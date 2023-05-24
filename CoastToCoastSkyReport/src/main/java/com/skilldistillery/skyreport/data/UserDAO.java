@@ -13,6 +13,7 @@ public interface UserDAO {
 	List<Sighting> findAll();
 	User create(Location location, User user);
 	Location createLocation(Location location);
+	User findUserById(int id);
 	
 	
 	

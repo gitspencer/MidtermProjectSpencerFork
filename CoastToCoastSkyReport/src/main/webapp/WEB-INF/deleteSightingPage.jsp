@@ -15,6 +15,29 @@
 <div style="min-height: 100vh" class="background-image">
 
 	<div class="container">
+	
+	<c:choose>
+			<c:when test="${loggedInUser.id == 1 }">
+			
+			<c:forEach var="sighting" items="${adminSighting}">
+		<form class="container" action="deleteSightingPage.do" method="POST">
+			<input type="hidden" name="id" value="${sighting.id }"> <img
+				src="${ sighting.pictureUrl}" alt="sightingImage" width="300"
+				height="200"><br> <a
+				href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title} </a><br>
+			<ul class="list-unstyled">
+				<li>${ sighting.sightingDate}</li>
+				<li>${ sighting.description}</li>
+				<li>${ sighting.dateCreated}</li>
+				<li>${ sighting.lastUpdate}</li>
+			</ul>
+			<button class= "btn btn-dark">Delete Sighting</button>
+		</form>
+	</c:forEach>
+								
+	</c:when>
+	
+		<c:when test="${not empty sessionScope.loggedInUser && sessionScope.loggedInUser.id ne 1}">
 
 	<h1>Select a Sighting to Delete</h1>
 	<c:forEach var="sighting" items="${sightingList}">
@@ -33,6 +56,8 @@
 		</form>
 	</c:forEach>
 
+       </c:when>
+	</c:choose>
 	
  	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	

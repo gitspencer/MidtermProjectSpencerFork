@@ -57,10 +57,41 @@
 	</c:choose>
 			
 		</ul>
-
-
+		<c:forEach items="${sightingRatings}" var="sightingRating">
+<c:choose>
+<c:when test="${sightingRating.rating == 1}">
+<p>Rating: &#x1F47D </p>
+</c:when>
+<c:when test="${sightingRating.rating == 2}">
+<p>Rating:  &#x1F47D &#x1F47D </p>
+</c:when>
+<c:when test="${sightingRating.rating == 3}">
+<p>Rating: &#x1F47D &#x1F47D &#x1F47D </p>
+</c:when>
+<c:when test="${sightingRating.rating == 4}">
+<p>Rating: &#x1F47D &#x1F47D &#x1F47D &#x1F47D</p>
+</c:when>
+<c:when test="${sightingRating.rating == 5}">
+<p>Rating: &#x1F47D &#x1F47D &#x1F47D &#x1F47D &#x1F47D</p>
+</c:when>
+</c:choose>
+</c:forEach>
 	</div>
 	
+			<ul class="list-unstyled">
+<c:forEach var="comment" items="${commentList}">
+
+
+
+		<li>${comment.user.username} : ${comment.content}</li>
+		
+		
+	
+		
+
+	
+	</c:forEach>
+	</ul>
 <form action="createSightingComment.do">
 <input type="hidden" value="${sighting.id }" name= "sightingId">
 <textarea name="content" cols="35" rows="7"></textarea>
@@ -71,16 +102,6 @@
 
 
 </form>
-			<ul class="list-unstyled">
-<c:forEach var="comment" items="${commentList}">
-
-
-
-		<li>${comment.content}</li>
-
-	
-	</c:forEach>
-	</ul>
 
 	 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	
