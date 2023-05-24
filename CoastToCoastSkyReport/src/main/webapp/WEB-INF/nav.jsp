@@ -31,7 +31,7 @@
 					<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
 						<a class="navbar-brand" href="home.do">Coast-to-Coast
 							SkyReport</a>
-						<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+						<ul class="navbar-nav me-auto mb-2 mt-lg-0">
 							<li class="nav-item"><a class="nav-link" href="account.do">Account</a>
 							</li>
 							<li class="nav-item"><a class="nav-link" href="logout.do">Logout</a>
@@ -41,7 +41,7 @@
 							<li class="nav-item"><a class="nav-link"
 								href="addNewSighting.do">Report Sightings</a></li>
 							<li class="nav-item"><a class="nav-link"
-								href="deleteSightingRouting.do">Delete Sightings</a></li>
+								href="learn.do">Learn About UFO's</a></li>
 						</ul>
 						<form class="d-flex" action=submitKeyword.do method="POST">
 							<input class="form-control me-2" type="search" name="keyword"
@@ -72,6 +72,8 @@
 								href="createAccount.do">Create Account</a></li>
 							<li class="nav-item"><a class="nav-link"
 								href="sightingsList.do">All Sightings</a></li>
+							<li class="nav-item"><a class="nav-link"
+								href="learn.do">Learn About UFO's</a></li>
 						</ul>
 						<form class="d-flex" action=submitKeyword.do method="POST">
 							<input class="form-control me-2" type="search" name="keyword"

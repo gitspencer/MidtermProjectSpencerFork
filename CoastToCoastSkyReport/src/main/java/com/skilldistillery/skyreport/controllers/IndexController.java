@@ -25,5 +25,9 @@ public class IndexController {
 		model.addAttribute("sightingList", sightings);
 		return "home";
 	}
+	@RequestMapping(path = { "learn.do" })
+	private String learn(Model model) {
+		return "learn";
+	}
 
 }

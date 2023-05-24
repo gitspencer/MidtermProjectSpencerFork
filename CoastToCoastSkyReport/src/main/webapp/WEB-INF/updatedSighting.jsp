@@ -21,7 +21,7 @@
 			
 				
 		
-				<ul>
+	<ul class="list-unstyled">
 					<li><div class="grow">Sighting Title: ${sighting.title}</div></li>
 					<li><div class="grow">Date of Sighting: ${sighting.sightingDate}</div></li>
 					<li><div class="grow">Description: ${sighting.description}</div></li>
