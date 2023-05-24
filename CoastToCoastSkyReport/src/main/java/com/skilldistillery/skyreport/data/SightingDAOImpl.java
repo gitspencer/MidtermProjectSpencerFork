@@ -147,6 +147,6 @@ public class SightingDAOImpl implements SightingDAO {
 		}
 		return null;
 		
-		
+	
 	}
 }
