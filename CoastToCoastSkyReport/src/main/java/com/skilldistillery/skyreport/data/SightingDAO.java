@@ -3,6 +3,7 @@ package com.skilldistillery.skyreport.data;
 import java.util.List;
 
 import com.skilldistillery.skyreport.entities.Comment;
+import com.skilldistillery.skyreport.entities.KnownObject;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;
@@ -19,6 +20,7 @@ public interface SightingDAO {
 	Comment createComment(Comment comment, int sightingId, User user);
 	List<Comment> getCommentList(int sightingId);
 	List<Sighting> findAllSightings();
+	KnownObject findKnownObjectById(int sightingId);
 	
 
 }

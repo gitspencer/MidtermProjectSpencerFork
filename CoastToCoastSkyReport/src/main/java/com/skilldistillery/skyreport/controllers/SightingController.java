@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.skilldistillery.skyreport.data.SightingDAO;
+import com.skilldistillery.skyreport.entities.Category;
 import com.skilldistillery.skyreport.entities.Comment;
+import com.skilldistillery.skyreport.entities.KnownObject;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;
@@ -31,7 +33,10 @@ public class SightingController {
 		model.addAttribute("sighting", sighting);
 		List<Comment> comments = sightingDAO.getCommentList(id);
 		model.addAttribute("commentList", comments);
-		
+		KnownObject knownObject  = sightingDAO.findKnownObjectById(id);
+		System.out.println("+++++++++++++++++++++++++++"+ knownObject + id);
+		model.addAttribute("knownObject", knownObject);
+		System.out.println("+++++++++++++++++++++++++++"+ knownObject);
 		return "sightingById";
 	}
 

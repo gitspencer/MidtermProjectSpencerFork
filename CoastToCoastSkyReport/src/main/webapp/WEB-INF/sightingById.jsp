@@ -24,7 +24,7 @@
 		<div class="col-lg-1"></div>
 		<div class="col-lg-5">
 		
-		<img src="${ sighting.pictureUrl}" alt="Picture of UFO!" width="500"
+		<img src="${sighting.pictureUrl}" alt="Picture of UFO!" width="500"
 			height="350">
 		</div>
 			<div class="col-lg-5">
@@ -41,7 +41,20 @@
 			<li><div class="grow">Location: ${sighting.location.city}
 				</div></li>
 			<li><div class="grow">Rating: ${sighting.sightingRating}</div></li>
-			<li><div class="grow">Category: ${sighting.categories}</div></li>
+	<c:choose>	
+	<c:when test="${not empty sighting.knownObject}">
+	
+	<li>Category: ${sighting.knownObject.name} </li>
+	<li><img src="${sighting.knownObject.pictureUrl}" alt="picture of category" width="150"
+			height="90">  </li>
+	
+	<li>${sighting.knownObject.description}</li>
+	</c:when>
+	<c:otherwise>
+	<li>Category: UFO</li>
+	</c:otherwise>
+	
+	</c:choose>
 			
 		</ul>
 
@@ -50,7 +63,7 @@
 	
 <form action="createSightingComment.do">
 <input type="hidden" value="${sighting.id }" name= "sightingId">
-<textarea name="content" cols="50" rows="10"></textarea>
+<textarea name="content" cols="35" rows="7"></textarea>
 <button type= "submit" name="comment">Comment
 </button>
 
@@ -71,7 +84,7 @@
 
 	 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	
-	
+	</div>
 	</div>
 </body>
 </html>

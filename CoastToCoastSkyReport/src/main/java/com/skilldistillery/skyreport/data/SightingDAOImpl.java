@@ -10,6 +10,7 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import com.skilldistillery.skyreport.entities.Comment;
+import com.skilldistillery.skyreport.entities.KnownObject;
 import com.skilldistillery.skyreport.entities.Location;
 import com.skilldistillery.skyreport.entities.Sighting;
 import com.skilldistillery.skyreport.entities.User;
@@ -131,4 +132,21 @@ public class SightingDAOImpl implements SightingDAO {
 		return comments;
 	}
 
+	
+	@Override
+	public KnownObject findKnownObjectById(int sightingId) {
+		String jpql ="SELECT k FROM KnownObject k JOIN Sighting s ON k.id = s.knownObject.id WHERE s.id = :sightingId";
+//		KnownObject knownObject= em.createQuery(jpql, KnownObject.class).setParameter("sightingId", sightingId).getSingleResult();
+//		
+//		System.out.println("In the Impl method^^^^^^^^^^^^^^^^^^^^^^" + sightingId);
+//		System.out.println("In the Impl method^^^^^^^^^^^^^^^^^^^^^^" + knownObject);
+//		System.out.println("In the Impl method^^^^^^^^^^^^^^^^^^^^^^" + jpql);
+		Sighting sighting = em.find(Sighting.class, sightingId);
+		if(sighting != null) {
+			return sighting.getKnownObject();
+		}
+		return null;
+		
+		
+	}
 }
