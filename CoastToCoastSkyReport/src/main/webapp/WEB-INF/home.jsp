@@ -16,7 +16,6 @@
 
 	<div class="container">
 	
-	<h1>UDPATE ME Coast to Coast Sky Report - Home Page</h1>
 	
 	<h2>Top Sightings</h2>
 	<c:forEach var="sighting" items="${sightingList}">
