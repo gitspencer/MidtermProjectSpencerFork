@@ -14,7 +14,7 @@ public interface SightingDAO {
 	boolean deleteById(int id);
 	List<Sighting> viewSightingByUserId(int id);
 	Location createLocation(Location location);
-	Sighting create(Location location, Sighting sighting);
+	Sighting create(Location location, Sighting sighting, User user);
 	Sighting updateSighting(int sightingId, Sighting editedSighting, Location location);
 	List<Sighting> viewSightingByKeyword(String keyword);
 	Comment createComment(Comment comment, int sightingId, User user);

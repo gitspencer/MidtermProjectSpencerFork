@@ -64,12 +64,6 @@ public class SightingController {
 		return "sightingByKeyword";
 	}
 
-	@RequestMapping(path = "addNewSighting.do", method = RequestMethod.POST)
-	public String addSighting(Sighting sighting, Location location, Model model) {
-		model.addAttribute("location", sightingDAO.createLocation(location));
-		model.addAttribute("sighting", sightingDAO.create(location, sighting));
-		return "addedSighting";
-	}
 
 	@GetMapping(path = "deleteSightingRouting.do")
 	public String routeToDeleteSighting(HttpSession session, Model model) {
@@ -123,6 +117,15 @@ public class SightingController {
 			return "login";
 		}
 
+	}
+	@RequestMapping(path = "addNewSighting.do", method = RequestMethod.POST)
+	public String addSighting(HttpSession session, Sighting sighting, Location location, Model model) {
+		User user = (User) session.getAttribute("loggedInUser");
+		if (user != null) {
+		model.addAttribute("location", sightingDAO.createLocation(location));
+		model.addAttribute("sighting", sightingDAO.create(location, sighting, user));
+		}
+		return "addedSighting";
 	}
 	@PostMapping(path= "getSightingList.do") 
 	public String getComments(int sightingId, Model model) {

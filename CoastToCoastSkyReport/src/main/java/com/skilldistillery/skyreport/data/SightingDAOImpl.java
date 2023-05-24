@@ -44,16 +44,6 @@ public class SightingDAOImpl implements SightingDAO {
 		return location;
 	}
 
-	@Override
-	public Sighting create(Location location, Sighting sighting) {
-		LocalDate ldt = LocalDate.now();
-		sighting.setUserId(1);
-		sighting.setSightingDate(ldt);
-		sighting.setEnabled(true);
-		sighting.setLocation(location);
-		em.persist(sighting);
-		return sighting;
-	}
 
 	@Override
 	public boolean deleteById(int id) {
@@ -110,6 +100,21 @@ public class SightingDAOImpl implements SightingDAO {
 		return sighting;
 	}
 	
+	@Override
+	public Sighting create(Location location, Sighting sighting, User user) {
+		System.out.println("top of impl");
+		LocalDate ldt = LocalDate.now();
+		sighting.setLocation(location);
+		sighting.setSightingDate(ldt);
+		sighting.setUserId(user.getId());
+		System.out.println("below userid");
+		System.out.println(user);
+		System.out.println(location);
+		sighting.setEnabled(true);
+		em.persist(sighting);
+		System.out.println(sighting);
+		return sighting;
+	}
 	@Override
 	public Comment createComment(Comment comment, int sightingId, User user) {
 		Sighting sighting = em.find(Sighting.class, sightingId);
