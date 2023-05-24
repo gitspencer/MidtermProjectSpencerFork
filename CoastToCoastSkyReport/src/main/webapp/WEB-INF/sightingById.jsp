@@ -34,7 +34,7 @@
 		</div>
 		
 			<br>
-		<ul>
+			<ul class="list-unstyled">
 			<li><div class="grow">Sighting Date:
 					${sighting.sightingDate}</div></li>
 			<li><div class="grow">Description: ${sighting.description}</div></li>
@@ -71,7 +71,7 @@
 
 
 </form>
-<ul>
+			<ul class="list-unstyled">
 <c:forEach var="comment" items="${commentList}">
 
 

@@ -23,20 +23,18 @@
 				src="${ sighting.pictureUrl}" alt="sightingImage" width="300"
 				height="200"><br> <a
 				href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title} </a><br>
-			<ul>
+			<ul class="list-unstyled">
 				<li>${ sighting.sightingDate}</li>
 				<li>${ sighting.description}</li>
 				<li>${ sighting.dateCreated}</li>
 				<li>${ sighting.lastUpdate}</li>
 			</ul>
-			<button>Delete Sighting</button>
-			<a href="updateSighting.do?id=${sighting.id}" class="link-danger">Edit Sighting Details</a>
-
+			<button class= "btn btn-dark">Delete Sighting</button>
 		</form>
 	</c:forEach>
 
- 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	
+ 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	
 	</div>
 	</div>
