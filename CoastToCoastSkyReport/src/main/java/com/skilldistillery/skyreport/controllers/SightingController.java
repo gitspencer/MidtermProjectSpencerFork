@@ -29,6 +29,8 @@ public class SightingController {
 	public String getSighting(int id, Model model) {
 		Sighting sighting = sightingDAO.findById(id);
 		model.addAttribute("sighting", sighting);
+		List<Comment> comments = sightingDAO.getCommentList(id);
+		model.addAttribute("commentList", comments);
 		
 		return "sightingById";
 	}

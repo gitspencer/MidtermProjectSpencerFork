@@ -15,11 +15,26 @@
 <div style="min-height: 100vh" class="background-image">
 
 	<div class="container">
+<br>
+<br>
 
+			<h3>${sighting.title}</h3>
+			
+		<div class="row"  >
+		<div class="col-lg-1"></div>
+		<div class="col-lg-5">
+		
 		<img src="${ sighting.pictureUrl}" alt="Picture of UFO!" width="500"
-			height="350"><br>
+			height="350">
+		</div>
+			<div class="col-lg-5">
+			<div class="map-container"> <iframe src="https://www.google.com/maps?q=${sighting.location.zipcode }&z=9&output=embed" width="500" height="350" frameborder="0" style="border:0" allowfullscreen> </iframe> </div> 
+			</div>
+		<div class="col-lg-1">
+		</div>
+		
+			<br>
 		<ul>
-			<li><div class="grow">Sighting Title: ${sighting.title}</div></li>
 			<li><div class="grow">Sighting Date:
 					${sighting.sightingDate}</div></li>
 			<li><div class="grow">Description: ${sighting.description}</div></li>
@@ -27,12 +42,11 @@
 				</div></li>
 			<li><div class="grow">Rating: ${sighting.sightingRating}</div></li>
 			<li><div class="grow">Category: ${sighting.categories}</div></li>
-			<li><div class="grow">Comments: ${sighting.comments}</div></li>
+			
 		</ul>
 
 
 	</div>
-<div class="map-container"> <iframe src="https://www.google.com/maps?q=${sighting.location.zipcode }&z=9&output=embed" width="600" height="450" frameborder="0" style="border:0" allowfullscreen> </iframe> </div> 
 	
 <form action="createSightingComment.do">
 <input type="hidden" value="${sighting.id }" name= "sightingId">
@@ -44,14 +58,17 @@
 
 
 </form>
+<ul>
 <c:forEach var="comment" items="${commentList}">
-		<form class="container" action="getSightingList.do" method="POST">
-		     <input type="hidden" value="${sighting.id }" name= "sightingId">
-		       ${comment}
 
-		</form>
-	</c:forEach>
+
+
+		<li>${comment.content}</li>
+
 	
+	</c:forEach>
+	</ul>
+
 	 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 	
 	
