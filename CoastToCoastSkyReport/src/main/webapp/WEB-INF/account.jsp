@@ -21,8 +21,52 @@
 
 			<br> <br>
 			<h1>My Account View</h1>
+			
 			<c:choose>
-				<c:when test="${not empty sessionScope.loggedInUser}">
+			<c:when test="${loggedInUser.id == 1 }">
+								<h2>Your Account Details</h2>
+
+					<div class="col-lg-4">
+						<h3>
+							<c:out value="${loggedInUser.firstName }"></c:out>
+							<c:out value="${loggedInUser.lastName }"></c:out>
+						</h3>
+						User Name:
+						<c:out value="${loggedInUser.username }"></c:out>
+						<br> ID:
+						<c:out value="${loggedInUser.id }"></c:out>
+						<br> <img src="${loggedInUser.pictureUrl}"
+							alt="sightingImage" width="300" height="200">
+					</div>
+					<div class="col-lg-1"></div>
+					<div class="col-lg-7">
+						<c:forEach var="sighting" items="${adminSightingList}">
+
+							<input type="hidden" name="id" value="${sighting.id }">
+							<img src="${ sighting.pictureUrl}" alt="sightingImage"
+								width="300" height="200">
+							<br>
+							<a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title}
+							</a>
+							<br>
+							<ul class="list-unstyled">
+								<li>${ sighting.sightingDate}</li>
+								<li>${ sighting.description}</li>
+								<li>${ sighting.dateCreated}</li>
+								<li>${ sighting.lastUpdate}</li>
+							</ul>
+
+							<a href="updateSighting.do?id=${sighting.id}"
+								class="btn btn-dark btn-lg active" role="button">Edit
+								Sighting Details</a>
+
+							<a href="deleteSightingRouting.do?id=${sighting.id}"
+								class="btn btn-dark btn-lg active" role="button">Delete
+								Sightings</a>
+						</c:forEach>
+			</div>
+			</c:when>
+				<c:when test="${not empty sessionScope.loggedInUser && sessionScope.loggedInUser.id ne 1}">
 					<h2>Your Account Details</h2>
 
 					<div class="col-lg-4">
@@ -62,7 +106,6 @@
 							<a href="deleteSightingRouting.do?id=${sighting.id}"
 								class="btn btn-dark btn-lg active" role="button">Delete
 								Sightings</a>
-
 						</c:forEach>
 					</div>
 				</c:when>

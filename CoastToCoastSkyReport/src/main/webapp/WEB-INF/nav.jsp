@@ -15,9 +15,6 @@
 <title>Navigation Bar</title>
 </head>
 <body>
-
-
-
 	<c:choose>
 		<c:when test="${not empty sessionScope.loggedInUser }">
 			<nav class="navbar navbar-expand-lg navbar-custom">

@@ -29,6 +29,9 @@ public class AccountController {
 		if (session.getAttribute("loggedInUser") != null) {
 			List<Sighting> sightings = sightingDAO.viewSightingByUserId(user.getId());
 			model.addAttribute("sightingList", sightings);
+			
+			List<Sighting> adminSightings = sightingDAO.findAllSightings();
+			model.addAttribute("adminSightingList", adminSightings);
 			return "account";
 		} else {
 			return "login";
