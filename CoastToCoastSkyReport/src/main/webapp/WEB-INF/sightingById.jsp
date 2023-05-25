@@ -21,16 +21,16 @@
 		<div class="container">
 
 			<br>
-
 			<h2>${sighting.title}</h2>
+			<br>
 
 			<div class="row">
-				<div class="col-lg-1"></div>
 				<div class="col-lg-5">
 
 					<img src="${sighting.pictureUrl}" alt="Picture of UFO!" width="500"
 						height="350">
 				</div>
+				<div class="col-lg-2"></div>
 				<div class="col-lg-5">
 					<div class="map-container">
 						<iframe
@@ -39,138 +39,109 @@
 							allowfullscreen> </iframe>
 					</div>
 				</div>
-				<div class="col-lg-1"></div>
-
-				<br>
-				<ul class="list-unstyled">
-					<li><div class="grow">Sighting Date:
-							${sighting.sightingDate}</div></li>
-					<li><div class="grow">Description:
-							${sighting.description}</div></li>
-					<li><div class="grow">Location:
-							${sighting.location.city}</div></li>
-					<li><div class="grow">Rating: ${sighting.sightingRating}</div></li>
-					<c:choose>
-						<c:when test="${not empty sighting.knownObject}">
-
-							<li>Category: ${sighting.knownObject.name}</li>
-							<li><img src="${sighting.knownObject.pictureUrl}"
-								alt="picture of category" width="150" height="90"></li>
-
-							<li>${sighting.knownObject.description}</li>
-						</c:when>
-						<c:otherwise>
-							<li>Category: UFO</li>
-						</c:otherwise>
-
-					</c:choose>
-
-				</ul>
-				<c:forEach items="${sightingRatings}" var="sightingRating">
-					<c:choose>
-						<c:when test="${sightingRating.rating == 1}">
-							<p>Rating: &#x1F47D</p>
-						</c:when>
-						<c:when test="${sightingRating.rating == 2}">
-							<p>Rating: &#x1F47D &#x1F47D</p>
-						</c:when>
-						<c:when test="${sightingRating.rating == 3}">
-							<p>Rating: &#x1F47D &#x1F47D &#x1F47D</p>
-						</c:when>
-						<c:when test="${sightingRating.rating == 4}">
-							<p>Rating: &#x1F47D &#x1F47D &#x1F47D &#x1F47D</p>
-						</c:when>
-						<c:when test="${sightingRating.rating == 5}">
-							<p>Rating: &#x1F47D &#x1F47D &#x1F47D &#x1F47D &#x1F47D</p>
-						</c:when>
-					</c:choose>
-				</c:forEach>
 			</div>
-
+			<br>
+			<div class="textbox">
+			<div class="grow">Sighting Date: ${sighting.sightingDate}</div>
+				<br>
+			<div class="grow">Location: ${sighting.location.city}</div>
+				<br>
+			<c:forEach items="${sightingRatings}" var="sightingRating">
+				<c:choose>
+					<c:when test="${sightingRating.rating == 1}">
+						<p>Rating: &#x1F47D</p>
+					</c:when>
+					<c:when test="${sightingRating.rating == 2}">
+						<p>Rating: &#x1F47D &#x1F47D</p>
+					</c:when>
+					<c:when test="${sightingRating.rating == 3}">
+						<p>Rating: &#x1F47D &#x1F47D &#x1F47D</p>
+					</c:when>
+					<c:when test="${sightingRating.rating == 4}">
+						<p>Rating: &#x1F47D &#x1F47D &#x1F47D &#x1F47D</p>
+					</c:when>
+					<c:when test="${sightingRating.rating == 5}">
+						<p>Rating: &#x1F47D &#x1F47D &#x1F47D &#x1F47D &#x1F47D</p>
+					</c:when>
+				</c:choose>
+			</c:forEach>
+			<div class="grow">Description: ${sighting.description}</div>
+			</div>
+				<br>
 				
-				
+				<c:choose>
+					<c:when test="${not empty sighting.knownObject}">
+						<img src="${sighting.knownObject.pictureUrl}"
+							alt="picture of category" width="150" height="90">
+						<br> <br>
+						<div class="textbox">
+						<div class="grow">Category: ${sighting.knownObject.name}</div>
+						<div class="grow">${sighting.knownObject.description}</div>
+						</div>
+					</c:when>
+					
+					<c:otherwise>
+						<div class="textbox">
+						<div class="grow">Category: UFO</div>
+						</div>
+					</c:otherwise>
+					
+				</c:choose>
 
 
 
 
+			<c:forEach var="comment" items="${commentList}">
+				<section>
+					<div class="container my-3 py-3">
+						<div class="row d-flex justify-content-center">
+							<div class="col-md-7 col-lg-10 col-xl-5">
+								<div class="row">
+									<div class="col-lg-1"></div>
+									<div class="col-lg-1">
+										<img src="${comment.user.pictureUrl}" alt="profile picture"
+											width="50" height="50" /> ${comment.user.username}
+
+									</div>
+									<div class="col-lg-20">
+
+										<div class="card text-white bg-transparent mb-3"
+											style="max-width: 40 rem;">
+											<div class="card-body p-3">
+
+												<div class="row">
+													<div class="col">
+														<div class="d-flex flex-start"></div>
+														<div class="flex-grow-1 flex-shrink-1">
+
+															<div></div>
+															<p class="small mb-0">${comment.content}</p>
+														</div>
+														<a href="#!"><i class="fas fa-reply fa-xs"></i><span
+															class="small">reply</span></a>
+													</div>
+												</div>
+												<div class="col-lg-1"></div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</c:forEach>
 
 
-<c:forEach var="comment" items="${commentList}">
-
-<section>
-  <div class="container my-3 py-3">
-    <div class="row d-flex justify-content-center">
-      <div class="col-md-7 col-lg-10 col-xl-5">
-     <div class="row">
-				<div class="col-lg-1"></div>
-				<div class="col-lg-1">
-                  <img src="${comment.user.pictureUrl}" alt="profile picture" width="50" height="50" />
-                     ${comment.user.username} 
-     
-             </div>
-				<div class="col-lg-20">       
-      
-        <div class="card text-white bg-transparent mb-3" style="max-width: 40 rem;">
-          <div class="card-body p-3">
-
-            <div class="row">
-              <div class="col">
-                <div class="d-flex flex-start">
-                   
-                     </div>
-                  <div class="flex-grow-1 flex-shrink-1">
-                   
-                      <div>
-                        
-                      </div>
-                      <p class="small mb-0">
-                      
-                       ${comment.content}
-                      </p>
-                    </div>
-                        <a href="#!"><i class="fas fa-reply fa-xs"></i><span class="small"> reply</span></a>
-                    
-                    
-                    </div>
-				</div>
-				<div class="col-lg-1"></div>
-
-  </div>
-                    
-                         
-                        </div> 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-</section>
-          
-    
-</c:forEach>
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
 			<form action="createSightingComment.do">
 				<input type="hidden" value="${sighting.id }" name="sightingId">
 				<textarea name="content" cols="35" rows="7"></textarea>
 				<button type="submit" name="comment">Comment</button>
-
-
-
-
 			</form>
+
+
 
 			<script
 				src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"

@@ -19,26 +19,24 @@
 	<div style="min-height: 100vh" class="background-image">
 
 		<div class="container">
+			
 			<br>
-
+			<h2>All Sightings</h2>
 			<c:choose>
 				<c:when test="${! empty sightingsList }">
-					<h2>All Sightings</h2>
 					<c:forEach var="sighting" items="${sightingsList}">
 						<input type="hidden" name="id" value="${sighting.id }">
 						<img src="${ sighting.pictureUrl}" alt="sightingImage" width="300"
 							height="200">
 						<br>
 						<div class="textbox">
-						<h6>
-						<a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title}
-						</a>
-						</h6>
-						<ul class="list-unstyled">
-							<li>Sighting Date: ${ sighting.sightingDate}</li>
-							<li>${ sighting.description}</li>
-						</ul>
-						</div><br>
+							<h6>
+								<a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title}
+								</a>
+							</h6>
+							Sighting Date: ${ sighting.sightingDate} <br> ${ sighting.description}
+						</div>
+						<br>
 					</c:forEach>
 				</c:when>
 				<c:otherwise>

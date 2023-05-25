@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/main.css">
-<<link rel="stylesheet" type="text/css" href="main.css">
+<link rel="stylesheet" type="text/css" href="main.css">
 <title>Created Sighting Results</title>
 </head>
 <body>
@@ -24,7 +24,10 @@
 				<fieldset class="items add">
 		
 				<ul class="list-unstyled">
-					<li><div class="grow">${sighting.pictureUrl}</div></li>
+					<li><img src="${sighting.pictureUrl}" alt="Picture of UFO!"width="500" height="350"></li>
+				</ul>
+				<div class="textbox">
+				<ul class="list-unstyled">
 					<li><div class="grow">Sighting Title: ${sighting.title}</div></li>
 					<li><div class="grow">Date of Sighting: ${sighting.sightingDate}</div></li>
 					<li><div class="grow">Sighting Description: ${sighting.description}</div></li>
@@ -33,8 +36,8 @@
 					<li><div class="grow">Zipcode: ${sighting.location.zipcode}</div></li>
 					<li><div class="grow">State: ${sighting.location.state}</div></li>
 					<li><div class="grow">Country: ${sighting.location.country}</div></li>
-				</ul>
-			
+				</ul>								
+				</div>
 				</fieldset>
 			
 		</c:when>
