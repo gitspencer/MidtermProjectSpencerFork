@@ -21,34 +21,32 @@
 		<fieldset class="items add">
 			<label id="one"> Sighting Title: </label> 
 			<input type="text" class="form-control" name="title" required> 
-		    <div class="valid-tooltip">
-              Looks good!
-            </div>
+		  
 		
 			<br> 
 			<label id="three"> Description: </label> 
-			<input type="text" name="description" required /> 
+			<input type="text" class="form-control" name="description" required/> 
 			<br> 
 			<label id="four">Image of Sighting: </label> 
-			<input type="text" name="pictureUrl" /> 
+			<input type="text" class="form-control" name="pictureUrl"/> 
 			<br> 
 			<label id="five">Sighting Address: </label> 
-			<input type="text" name="address" /> 
+			<input type="text" class="form-control" name="address"/> 
 			<br> 
 			<label id="six">Sighting City: </label> 
-			<input type="text" name="city" /> 
+			<input type="text" class="form-control" name="city"/> 
 			<br> 
 			<label id="seven">Sighting ZipCode: </label> 
-			<input type="text" name="zipcode" /> 
+			<input type="text" class="form-control" name="zipcode"/> 
 			<br> 
 			<label id="eight">Sighting State: </label> 
-			<input type="text" name="state" /> 
+			<input type="text" class="form-control" name="state" /> 
 			<br> 
 			<label id="nine">Sighting Country: </label> 
-			<input type="text" name="country" /> 
+			<input type="text" class="form-control" name="country"/> 
 			<br> 
 		
-			<input type="submit" value="Report Sighting" />
+			<input type="submit" value="Report Sighting"/>
 		</fieldset>
 	</form>
 	
