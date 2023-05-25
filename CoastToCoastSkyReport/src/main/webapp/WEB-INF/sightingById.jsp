@@ -84,6 +84,7 @@
 						<div class="textbox">
 						<div class="grow">Category: UFO</div>
 						</div>
+						<br>
 					</c:otherwise>
 					
 				</c:choose>
@@ -140,7 +141,8 @@
 				<textarea name="content" cols="35" rows="7"></textarea>
 				<button type="submit" name="comment">Comment</button>
 			</form>
-
+			<br>
+			<br>
 
 
 			<script
