@@ -32,6 +32,9 @@
 					<li><div class="grow">Zipcode: ${sighting.location.zipcode}</div></li>
 					<li><div class="grow">State: ${sighting.location.state}</div></li>
 					<li><div class="grow">Country: ${sighting.location.country}</div></li>
+					
+					<li><div class="grow">KnownObject: ${sighting.knownObject.name}</div></li>
+					
 				</ul>
 			
 				

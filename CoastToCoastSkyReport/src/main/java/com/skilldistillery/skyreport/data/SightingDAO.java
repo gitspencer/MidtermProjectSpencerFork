@@ -23,6 +23,7 @@ public interface SightingDAO {
 	List<Sighting> findAllSightings();
 	KnownObject findKnownObjectById(int sightingId);
 	List<SightingRating> getSightingRatingsList(int sightingId);
+	List<KnownObject> getKnownObjectList(int sightingId);
 	
 
 }

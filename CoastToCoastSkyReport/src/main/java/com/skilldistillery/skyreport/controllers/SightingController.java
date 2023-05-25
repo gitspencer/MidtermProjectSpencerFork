@@ -110,8 +110,13 @@ public class SightingController {
 			Model model) {
 		User user = (User) session.getAttribute("loggedInUser");
 		if (user != null) {
+			System.out.println(sighting);
 			sighting = sightingDAO.updateSighting(id, sighting, location);
 			model.addAttribute("sighting", sighting);
+			
+			//List<KnownObject> knownObjectsList = sightingDAO.getKnownObjectList(id);
+//			List <KnownObject> knownObjectsList = sightingDAO.k
+//			model.addAttribute("knownObjects", knownObjectsList);
 			return "updatedSighting";
 		} else {
 			return "login";
@@ -152,6 +157,8 @@ public class SightingController {
 		return "sightingById";
 		
 	}
+	
+	
 	
 
 }

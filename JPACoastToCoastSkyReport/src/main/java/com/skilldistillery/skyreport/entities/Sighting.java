@@ -292,8 +292,10 @@ public class Sighting {
 
 	@Override
 	public String toString() {
-		return "Sighting [id=" + id + ", sightingDate=" + sightingDate + ", description=" + description + ", userId="
-				+ userId + ", dateCreated=" + dateCreated + ", lastUpdate=" + lastUpdate + ", title=" + title + "]";
+		return "Sighting [id=" + id + ", sightingDate=" + sightingDate + ", pictureUrl=" + pictureUrl + ", description="
+				+ description + ", userId=" + userId + ", dateCreated=" + dateCreated + ", lastUpdate=" + lastUpdate
+				+ ", title=" + title + ", location=" + location + ", sightingImage=" + sightingImage + ", knownObject="
+				+ knownObject + ", enabled=" + enabled + "]";
 	}
 
 }

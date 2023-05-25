@@ -86,13 +86,22 @@ public class SightingDAOImpl implements SightingDAO {
 			sighting.getLocation().setCountry(location.getCountry());
 			sighting.getLocation().setState(location.getState());
 			sighting.getLocation().setZipcode(location.getZipcode());
-			sighting.setKnownObject(editedSighting.getKnownObject());
+			if(editedSighting.getKnownObject().getId() == 0) {
+				
+				sighting.setKnownObject(null);
+				
+			} else {
+				KnownObject kn= em.find(KnownObject.class, editedSighting.getKnownObject().getId());
+			sighting.setKnownObject(kn);
+			}
 			sighting.setSightingDate(editedSighting.getSightingDate());
 			sighting.setTitle(editedSighting.getTitle());
 			sighting.setDescription(editedSighting.getDescription());
 			sighting.setDateCreated(editedSighting.getDateCreated());
 			sighting.setPictureUrl(editedSighting.getPictureUrl());
 			sighting.setLastUpdate(editedSighting.getLastUpdate());
+			System.out.println("**************************");
+			System.out.println(sighting);
 			em.flush();
 			if (editedSighting != null) {
 				return sighting;
@@ -160,6 +169,19 @@ public class SightingDAOImpl implements SightingDAO {
 		String jpql = "SELECT s FROM SightingRating s WHERE s.sighting.id = :sightingId";
 		List<SightingRating> ratings =em.createQuery(jpql, SightingRating.class).setParameter("sightingId", sightingId).getResultList();
 		return ratings;
+	}
+	
+	@Override
+	public List<KnownObject> getKnownObjectList(int sightingId) {
+		
+		String jpql = "SELECT k FROM KnownObject k JOIN k.sightings s WHERE s.id = :sightingId";
+		List<KnownObject> knownObjectList = em.createQuery(jpql, KnownObject.class)
+				.setParameter("sightingId", sightingId)
+				.getResultList();
+		
+	
+		return knownObjectList;
+		
 	}
 	
 
