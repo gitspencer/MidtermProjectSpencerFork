@@ -128,6 +128,8 @@ public class SightingController {
 			model.addAttribute("sighting", sighting);
 			model.addAttribute("sighting", sighting);
 			model.addAttribute("user", user);
+			List<Comment> comments = sightingDAO.getCommentList(sightingId);
+			model.addAttribute("commentList", comments);
 			return "sightingById";
 		} else {
 			return "login";

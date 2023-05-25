@@ -20,7 +20,11 @@
 	<form class="container" action="addNewSighting.do" method="POST">
 		<fieldset class="items add">
 			<label id="one"> Sighting Title: </label> 
-			<input type="text" name="title" required /> 
+			<input type="text" class="form-control" name="title" required> 
+		    <div class="valid-tooltip">
+              Looks good!
+            </div>
+		
 			<br> 
 			<label id="three"> Description: </label> 
 			<input type="text" name="description" required /> 

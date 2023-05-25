@@ -87,20 +87,81 @@
 				</c:forEach>
 			</div>
 
-			<ul class="list-unstyled">
-				<c:forEach var="comment" items="${commentList}">
-
-
-
-					<li>${comment.user.username}: ${comment.content}</li>
+				
+				
 
 
 
 
 
 
-				</c:forEach>
-			</ul>
+<c:forEach var="comment" items="${commentList}">
+
+<section>
+  <div class="container my-3 py-3">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-7 col-lg-10 col-xl-5">
+     <div class="row">
+				<div class="col-lg-1"></div>
+				<div class="col-lg-1">
+                  <img src="${comment.user.pictureUrl}" alt="profile picture" width="50" height="50" />
+                     ${comment.user.username} 
+     
+             </div>
+				<div class="col-lg-20">       
+      
+        <div class="card text-white bg-transparent mb-3" style="max-width: 40 rem;">
+          <div class="card-body p-3">
+
+            <div class="row">
+              <div class="col">
+                <div class="d-flex flex-start">
+                   
+                     </div>
+                  <div class="flex-grow-1 flex-shrink-1">
+                   
+                      <div>
+                        
+                      </div>
+                      <p class="small mb-0">
+                      
+                       ${comment.content}
+                      </p>
+                    </div>
+                        <a href="#!"><i class="fas fa-reply fa-xs"></i><span class="small"> reply</span></a>
+                    
+                    
+                    </div>
+				</div>
+				<div class="col-lg-1"></div>
+
+  </div>
+                    
+                         
+                        </div> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+</section>
+          
+    
+</c:forEach>
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
 			<form action="createSightingComment.do">
 				<input type="hidden" value="${sighting.id }" name="sightingId">
 				<textarea name="content" cols="35" rows="7"></textarea>
