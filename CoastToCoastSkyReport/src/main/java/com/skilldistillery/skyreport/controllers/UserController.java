@@ -57,7 +57,7 @@ public class UserController {
 		try {
 			User newUser = userDAO.create(location, user);
 			session.setAttribute("loggedInUser", newUser);
-			return "home";
+			return "redirect:home.do";
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
