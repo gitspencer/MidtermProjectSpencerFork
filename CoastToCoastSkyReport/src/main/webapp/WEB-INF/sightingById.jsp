@@ -45,11 +45,14 @@
 				<ul class="list-unstyled">
 					<li><div class="grow">Sighting Date:
 							${sighting.sightingDate}</div></li>
-					<li><div class="grow">Description:
-							${sighting.description}</div></li>
+							<br>
 					<li><div class="grow">Location:
 							${sighting.location.city}</div></li>
-					<li><div class="grow">Rating: ${sighting.sightingRating}</div></li>
+							<br>
+					<li><div class="grow">Description:
+							${sighting.description}</div></li>
+							<br>
+					
 					<c:choose>
 						<c:when test="${not empty sighting.knownObject}">
 
