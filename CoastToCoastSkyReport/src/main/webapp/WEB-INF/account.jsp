@@ -44,6 +44,33 @@
 								<c:out value="${loggedInUser.role }"></c:out>
 								<br> About Me:
 								<c:out value="${loggedInUser.aboutMe }"></c:out>
+								</div>
+								<br><div class ="textbox">
+								<h2>Create Admin Account</h2>
+								<form action="createAccount.do" method="post">
+									<fieldset class="items add">
+										<label id="one"> User Name: </label> <input type="text"
+											name="username" required /> <br> <label id="two">
+											Password: </label> <input type="text" name="password" required /> <br>
+										<label id="three"> First Name: </label> <input type="text"
+											name="firstName" /> <br> <label id="four"> Last
+											Name: </label> <input type="text" name="lastName" required /> <br>
+										<label id="five">Address: </label> <input type="text"
+											name="address" /> <br> <label id="six">City: </label> <input
+											type="text" name="city" /> <br> <label id="seven">ZipCode:
+										</label> <input type="text" name="zipcode" /> <br> <label
+											id="eight">State: </label> <input type="text" name="state" />
+										<br> <label id="nine">Country: </label> <input
+											type="text" name="country" /> <br> <label id="ten">About
+											Me: </label> <input type="text" name="aboutMe" /> <br> <label
+											id="eleven">Profile Picture: </label> <input type="text"
+											name="profilePictureUrl" /> <br> <input type="hidden"
+											name="enabled" value="1" /> <label id="twelve">User
+											Role </label> <input type="text" name="role" />
+									</fieldset>
+
+									<input type="submit" value="Create Account" />
+								</form>
 							</div>
 						</div>
 						<div class="col-lg-1"></div>
@@ -79,6 +106,8 @@
 								<br>
 								<br>
 							</c:forEach>
+
+
 						</div>
 					</div>
 				</c:when>
