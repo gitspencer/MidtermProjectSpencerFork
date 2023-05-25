@@ -23,7 +23,8 @@
 				
 		
 		<ul class="list-unstyled">
-					<li><div class="grow">${sighting.pictureUrl}</div></li>
+					<li><img src="${sighting.pictureUrl}" alt="Picture of UFO!" width="500"
+						height="350"></li>
 					<li><div class="grow">Sighting Title: ${sighting.title}</div></li>
 					<li><div class="grow">Date of Sighting: ${sighting.sightingDate}</div></li>
 					<li><div class="grow">Sighting Description: ${sighting.description}</div></li>
