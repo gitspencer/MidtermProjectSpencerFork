@@ -45,13 +45,9 @@
 									placeholder="${sighting.pictureUrl}" name="pictureUrl" /> <br>
 
 
-								KnownObject: <select name="knownObject.id" id="knownObject">
 
 
-									<option value="2">Comet</option>
-									<option value="1">Weather Balloon</option>
-									<option value="3">Aurora Borealis</option>
-								</select><br> <label id="five">Sighting Address: </label> <input
+								 <label id="five">Sighting Address: </label> <input
 									type="text" class="form-control"
 									placeholder="${sighting.location.address}" name="address" /> <br>
 								<label id="six">Sighting City: </label> <input type="text"
@@ -64,6 +60,12 @@
 									name="state" /> <br> <label id="nine">Sighting
 									Country: </label> <input type="text" class="form-control"
 									placeholder="${sighting.location.country}" name="country" /> <br>
+									
+								KnownObject: <select name="knownObject.id" id="knownObject">
+									<option value="2">Comet</option>
+									<option value="1">Weather Balloon</option>
+									<option value="3">Aurora Borealis</option></select><br><br>
+									
 								<input type="submit" value="Update Sighting" />
 							</fieldset>
 						</form>
@@ -89,14 +91,6 @@
 
 
 
-								KnownObject: <select name="knownObject.id" id="knownObject">
-
-
-									<option value="2">Comet</option>
-									<option value="1">Weather Balloon</option>
-									<option value="3">Aurora Borealis</option>
-								</select><br>
-
 
 
 								<label id="five">Sighting Address: </label> <input type="text"
@@ -111,7 +105,17 @@
 									value="${sighting.location.state }" name="state" /> <br>
 								<label id="five">Sighting Country: </label> <input type="text"
 									class="form-control" value="${sighting.location.country }"
-									name="country" /> <br> <input type="submit"
+									name="country" /> <br> 
+									
+								KnownObject: <select name="knownObject.id" id="knownObject">
+
+
+									<option value="2">Comet</option>
+									<option value="1">Weather Balloon</option>
+									<option value="3">Aurora Borealis</option>
+								</select><br><br>
+
+									<input type="submit"
 									value="Update Sighting" />
 							</fieldset>
 						</form>
