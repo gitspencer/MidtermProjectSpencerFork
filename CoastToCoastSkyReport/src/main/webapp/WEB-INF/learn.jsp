@@ -24,7 +24,7 @@
 			<div class="textbox">			
 			<h3>UFO ~ noun</h3>
 			a mysterious object seen in the sky for which, it is claimed, no
-			orthodox scientific explanation can be found.<br> <br> <br>
+			orthodox scientific explanation can be found.<br> <br>
 			</div> <br>
 			<div class="textbox">
 			<h2>History</h2>
