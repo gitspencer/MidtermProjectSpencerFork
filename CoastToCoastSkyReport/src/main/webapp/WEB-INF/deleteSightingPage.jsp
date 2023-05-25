@@ -15,7 +15,7 @@
 <div style="min-height: 100vh" class="background-image">
 
 	<div class="container">
-	
+	<br>
 	<c:choose>
 			<c:when test="${loggedInUser.id == 1 }">
 			
@@ -28,8 +28,6 @@
 			<ul class="list-unstyled">
 				<li>${ sighting.sightingDate}</li>
 				<li>${ sighting.description}</li>
-				<li>${ sighting.dateCreated}</li>
-				<li>${ sighting.lastUpdate}</li>
 			</ul>
 			<button class= "btn btn-dark">Delete Sighting</button>
 		</form>

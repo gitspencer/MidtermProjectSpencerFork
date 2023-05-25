@@ -15,7 +15,7 @@
 <div style="min-height: 100vh" class="background-image">
 
 	<div class="container">
-
+	<br>
 	<h1>Report a Sighting</h1>   
 	<form class="container" action="addNewSighting.do" method="POST">
 		<fieldset class="items add">

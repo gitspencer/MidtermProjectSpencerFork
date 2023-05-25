@@ -15,10 +15,11 @@
 <div style="min-height: 100vh" class="background-image">
 
 	<div class="container">
-
+<br>
 <c:choose>
 		<c:when test="${! empty sighting}">
 			
+		 <h2>Updated Sighting</h2>
 				
 		
 	<ul class="list-unstyled">
@@ -32,7 +33,7 @@
 		</c:when>
 		
 		<c:when test="${empty sighting}">
-		 <p> No Sighting Found </p>
+		 <h2> No Sighting Found </h2>
 		</c:when>
 		
 	</c:choose>

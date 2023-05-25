@@ -15,6 +15,7 @@
 <div style="min-height: 100vh" class="background-image">
 
 	<div class="container">
+	<br>
 
 <c:choose>
 		<c:when test="${! empty sighting}">

@@ -18,7 +18,7 @@
 	<%@ include file="nav.jsp"%>
 	<div style="min-height: 100vh" class="background-image">
 		<div class="container">
-
+		<br>
 
 			<h2>Definition of a UFO</h2>
 			<h3>UFO ~ noun</h3>
@@ -50,7 +50,7 @@
 			“unidentified.” The latter category, approximately 6 percent of the
 			total, included cases for which there was insufficient information to
 			<br> make an identification with a known phenomenon. <br> <a
-				href="https://www.history.com/shows/ancient-aliens"class"link-danger">More
+				href="https://www.history.com/shows/ancient-aliens"class="link-danger">More
 				History</a> <br> <br>
 			<h2>More Information About UFO's</h2>
 			<a href="https://vault.fbi.gov/UFO" class="link-danger">FBI
