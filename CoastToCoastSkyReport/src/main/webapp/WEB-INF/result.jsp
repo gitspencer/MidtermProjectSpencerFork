@@ -18,13 +18,13 @@
 <div style="min-height: 100vh" class="background-image">
 
 	<div class="container">
-	
+	<br>
 	<c:choose>
 		<c:when test="${deleted == true}">
-			<p>Sighting deletion successful</p>
+			<h2>Sighting deletion successful</h2>
 		</c:when>
 		<c:otherwise>
-			<p>Sighting deletion unsuccessful</p>
+			<h2>Sighting deletion unsuccessful</h2>
 		</c:otherwise>
 	</c:choose>
 	 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
