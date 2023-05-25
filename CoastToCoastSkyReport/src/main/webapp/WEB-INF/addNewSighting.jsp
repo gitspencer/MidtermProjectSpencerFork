@@ -46,7 +46,7 @@
 			<input type="text" class="form-control" name="country"/> 
 			<br> 
 		
-			<input type="submit" value="Report Sighting"/>
+			<input type="submit" class="btn btn-dark btn-lg active" value="Report Sighting"/>
 		</fieldset>
 	</form>
 	
