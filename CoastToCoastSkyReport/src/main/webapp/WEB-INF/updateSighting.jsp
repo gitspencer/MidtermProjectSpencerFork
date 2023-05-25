@@ -82,7 +82,7 @@
                                  KnownObject:
 								<select name="knownObject.id" id="knownObject">
 									
-									<option value="0">UFO</option>
+									
 									<option value="2">Comet</option>
 									<option value="1">Weather Balloon</option>
 									<option value="3">Aurora Borealis</option>
