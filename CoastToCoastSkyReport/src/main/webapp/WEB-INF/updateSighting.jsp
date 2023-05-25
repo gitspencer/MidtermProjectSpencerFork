@@ -57,7 +57,7 @@
 								<label id="five">Sighting Country: </label> <input type="text"
 									value="${sighting.location.country }" name="country" /> <br>
 
-								<input type="submit" value="updateSighting" />
+								<input type="submit" value="Update Sighting" />
 							</fieldset>
 						</form>
 
@@ -98,7 +98,7 @@
 								id="five">Sighting Country: </label> <input type="text"
 								value="${sighting.location.country }" name="country" /> <br>
 
-							<input type="submit" value="updateSighting" />
+							<input type="submit" value="Update Sighting" />
 						</fieldset>
 					</form>
 				</c:when>

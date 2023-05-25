@@ -18,13 +18,12 @@
 	<%@ include file="nav.jsp"%>
 	<div style="min-height: 100vh" class="background-image">
 		<div class="container">
-		<br>
+			<br>
 
 			<h2>Definition of a UFO</h2>
 			<h3>UFO ~ noun</h3>
 			a mysterious object seen in the sky for which, it is claimed, no
-			orthodox scientific explanation can be found.<br> <br>
-			<br>
+			orthodox scientific explanation can be found.<br> <br> <br>
 			<h2>History</h2>
 			The first well-known UFO sighting occurred in 1947, when businessman
 			Kenneth Arnold claimed to see a group of nine high-speed objects near
@@ -49,15 +48,23 @@
 			atmospheric, or artificial <br> (human-caused) phenomenon or (2)
 			“unidentified.” The latter category, approximately 6 percent of the
 			total, included cases for which there was insufficient information to
-			<br> make an identification with a known phenomenon. <br> <a
-				href="https://www.history.com/shows/ancient-aliens"class="link-danger">More
-				History</a> <br> <br>
+			<br> make an identification with a known phenomenon. <br>
+			<h6>
+				<a href="https://www.history.com/shows/ancient-aliens"
+					class="link-danger">More History</a>
+			</h6>
+			<br>
 			<h2>More Information About UFO's</h2>
-			<a href="https://vault.fbi.gov/UFO" class="link-danger">FBI
-				Official UFO Site</a><br> <a
-				href="https://www.seti.org/?gclid=CjwKCAjw67ajBhAVEiwA2g_jEMAvClGzhsiOITdEzTKOjcaldcvcUVurecoTG22C9pJdvqfZR5LNMxoCYvsQAvD_BwE"
-				class="link-danger">SETI Institute- Life Beyond Earth</a><br>
-
+			<h6>
+				<a href="https://vault.fbi.gov/UFO" class="link-danger">FBI
+					Official UFO Site</a>
+			</h6>
+			<h6>
+				<a
+					href="https://www.seti.org/?gclid=CjwKCAjw67ajBhAVEiwA2g_jEMAvClGzhsiOITdEzTKOjcaldcvcUVurecoTG22C9pJdvqfZR5LNMxoCYvsQAvD_BwE"
+					class="link-danger">SETI Institute- Life Beyond Earth</a>
+			</h6>
+			<br>
 		</div>
 	</div>
 	<script
