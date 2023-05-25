@@ -41,19 +41,18 @@
 					<div class="col-lg-1"></div>
 					<div class="col-lg-7">
 						<c:forEach var="sighting" items="${adminSightingList}">
-
+							<br>
 							<input type="hidden" name="id" value="${sighting.id }">
 							<img src="${ sighting.pictureUrl}" alt="sightingImage"
 								width="300" height="200">
 							<br>
-							<a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title}
-							</a>
-							<br>
+							<h6>
+								<a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title}
+								</a>
+							</h6>
 							<ul class="list-unstyled">
 								<li>${ sighting.sightingDate}</li>
 								<li>${ sighting.description}</li>
-								<li>${ sighting.dateCreated}</li>
-								<li>${ sighting.lastUpdate}</li>
 							</ul>
 
 							<a href="updateSighting.do?id=${sighting.id}"
@@ -84,19 +83,18 @@
 					<div class="col-lg-1"></div>
 					<div class="col-lg-7">
 						<c:forEach var="sighting" items="${sightingList}">
-
+							<br>
 							<input type="hidden" name="id" value="${sighting.id }">
 							<img src="${ sighting.pictureUrl}" alt="sightingImage"
 								width="300" height="200">
 							<br>
-							<a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title}
-							</a>
-							<br>
+							<h6>
+								<a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title}
+								</a>
+							</h6>
 							<ul class="list-unstyled">
 								<li>${ sighting.sightingDate}</li>
 								<li>${ sighting.description}</li>
-								<li>${ sighting.dateCreated}</li>
-								<li>${ sighting.lastUpdate}</li>
 							</ul>
 
 							<a href="updateSighting.do?id=${sighting.id}"

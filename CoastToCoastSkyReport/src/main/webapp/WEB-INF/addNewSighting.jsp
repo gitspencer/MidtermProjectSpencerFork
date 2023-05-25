@@ -48,7 +48,7 @@
 			<input type="text" name="country" /> 
 			<br> 
 		
-			<input type="submit" value="addNewSighting" />
+			<input type="submit" value="Report Sighting" />
 		</fieldset>
 	</form>
 	

@@ -19,14 +19,15 @@
 
 <c:choose>
 		<c:when test="${! empty sighting}">
-			
+
+			 <h2>Sighting Added</h2>			
 				<fieldset class="items add">
 		
-				<ul>
-					<li><div class="grow">Sighting Title: ${sighting.pictureUrl}</div></li>
+				<ul class="list-unstyled">
+					<li><div class="grow">${sighting.pictureUrl}</div></li>
 					<li><div class="grow">Sighting Title: ${sighting.title}</div></li>
 					<li><div class="grow">Date of Sighting: ${sighting.sightingDate}</div></li>
-					<li><div class="grow">Sighting Title: ${sighting.description}</div></li>
+					<li><div class="grow">Sighting Description: ${sighting.description}</div></li>
 					<li><div class="grow">Address: ${sighting.location.address}</div></li>
 					<li><div class="grow">City: ${sighting.location.city}</div></li>
 					<li><div class="grow">Zipcode: ${sighting.location.zipcode}</div></li>

@@ -20,12 +20,13 @@
 
 		<div class="container">
 			<br>
-
+			
 			<c:choose>
 				<c:when test="${loggedInUser.id == 1 }">
 
 					<div var="adminSighting" items="${adminSighting}">
-
+						<h2>Update a Sighting</h2>
+						<div class="textbox">
 						<form class="container" action="updatedSighting.do" method="POST">
 
 							<fieldset class="items add">
@@ -57,17 +58,17 @@
 								<label id="five">Sighting Country: </label> <input type="text"
 									value="${sighting.location.country }" name="country" /> <br>
 
-								<input type="submit" value="updateSighting" />
+								<input type="submit" value="Update Sighting" />
 							</fieldset>
 						</form>
-
+						</div>
 					</div>
 				</c:when>
 
 				<c:when
 					test="${not empty sessionScope.loggedInUser && sessionScope.loggedInUser.id ne 1}">
 					<h2>Update a Sighting</h2>
-
+					<div class="textbox">
 					<form class="container" action="updatedSighting.do" method="POST">
 						<fieldset class="items add">
 							<input type="hidden" name="id" value="${sighting.id }"><br>
@@ -98,9 +99,10 @@
 								id="five">Sighting Country: </label> <input type="text"
 								value="${sighting.location.country }" name="country" /> <br>
 
-							<input type="submit" value="updateSighting" />
+							<input type="submit" value="Update Sighting" />
 						</fieldset>
 					</form>
+					</div>
 				</c:when>
 			</c:choose>
 		</div>

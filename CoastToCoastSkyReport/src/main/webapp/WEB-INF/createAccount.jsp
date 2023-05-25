@@ -19,6 +19,7 @@
 	<div class="container">
 	<br>
 	<h2>Create Account</h2>
+	<div class="textbox">
 	<form action="createAccount.do" method="post">
 		<fieldset class="items add">
 			<label id="one"> User Name: </label> 
@@ -60,6 +61,7 @@
 			
 						<input type="submit" value="Create Account" />
 	</form>
+	</div>
 	
 	</div>
 	</div>

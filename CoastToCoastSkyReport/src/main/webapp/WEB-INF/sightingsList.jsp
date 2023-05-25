@@ -30,9 +30,10 @@
 							height="200">
 						<br>
 						<div class="textbox">
+						<h6>
 						<a href="sightingById.do?id=${sighting.id}" class="link-danger">${sighting.title}
 						</a>
-						<br>
+						</h6>
 						<ul class="list-unstyled">
 							<li>Sighting Date: ${ sighting.sightingDate}</li>
 							<li>${ sighting.description}</li>
