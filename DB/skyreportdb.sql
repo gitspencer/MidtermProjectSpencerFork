@@ -400,10 +400,8 @@ USE `skyreportdb`;
 INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (1, 1, 4, '2023-05-18', 'The OG');
 INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (2, 3, 5, '2023-05-19', NULL);
 INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (3, 4, 3, '2023-05-19', NULL);
-INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (4, 3, 5, '2023-05-19', NULL);
-INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (5, 1, 5, '2023-05-19', NULL);
-INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (5, 3, 5, '2023-05-19', NULL);
-INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (4, 5, 4, '2023-05-19', NULL);
+INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (4, 2, 5, '2023-05-19', NULL);
+INSERT INTO `sighting_rating` (`user_id`, `sighting_id`, `rating`, `rating_date`, `rating_comment`) VALUES (5, 5, 5, '2023-05-19', NULL);
 
 COMMIT;
 

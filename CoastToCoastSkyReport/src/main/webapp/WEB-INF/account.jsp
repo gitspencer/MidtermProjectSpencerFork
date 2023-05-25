@@ -21,10 +21,10 @@
 
 			<br> <br>
 			<h1>My Account View</h1>
-			
+
 			<c:choose>
-			<c:when test="${loggedInUser.id == 1 }">
-								<h2>Your Account Details</h2>
+				<c:when test="${loggedInUser.id == 1 }">
+					<h2>Your Account Details</h2>
 
 					<div class="col-lg-4">
 						<h3>
@@ -63,9 +63,10 @@
 								class="btn btn-dark btn-lg active" role="button">Delete
 								Sightings</a>
 						</c:forEach>
-			</div>
-			</c:when>
-				<c:when test="${not empty sessionScope.loggedInUser && sessionScope.loggedInUser.id ne 1}">
+					</div>
+				</c:when>
+				<c:when
+					test="${not empty sessionScope.loggedInUser && sessionScope.loggedInUser.id ne 1}">
 					<h2>Your Account Details</h2>
 
 					<div class="col-lg-4">
