@@ -34,6 +34,7 @@
 						<h1>Update a Sighting</h1>
 						<form class="container" action="updatedSighting.do" method="POST">
 							<fieldset class="items add">
+								<input type="hidden" name="id" value="${sighting.id }"><br>
 								<label id="one"> Sighting Title: </label> <input type="text"
 									class="form-control" placeholder="${sighting.title}"
 									name="title" required> <br> <label id="three">
@@ -42,19 +43,28 @@
 									required /> <br> <label id="four">Image of
 									Sighting: </label> <input type="text" class="form-control"
 									placeholder="${sighting.pictureUrl}" name="pictureUrl" /> <br>
-								<label id="five">Sighting Address: </label> <input type="text"
-									class="form-control" placeholder="${sighting.location.address}"
-									name="address" /> <br> <label id="six">Sighting
-									City: </label> <input type="text" class="form-control"
-									placeholder="${sighting.location.city}" name="city" /> <br>
-								<label id="seven">Sighting ZipCode: </label> <input type="text"
-									class="form-control" placeholder="${sighting.location.zipcode}"
-									name="zipcode" /> <br> <label id="eight">Sighting
-									State: </label> <input type="text" class="form-control"
-									placeholder="${sighting.location.state}" name="state" /> <br>
-								<label id="nine">Sighting Country: </label> <input type="text"
-									class="form-control" placeholder="${sighting.location.country}"
-									name="country" /> <br> <input type="submit" value="Update" />
+
+
+								KnownObject: <select name="knownObject.id" id="knownObject">
+
+
+									<option value="2">Comet</option>
+									<option value="1">Weather Balloon</option>
+									<option value="3">Aurora Borealis</option>
+								</select><br> <label id="five">Sighting Address: </label> <input
+									type="text" class="form-control"
+									placeholder="${sighting.location.address}" name="address" /> <br>
+								<label id="six">Sighting City: </label> <input type="text"
+									class="form-control" placeholder="${sighting.location.city}"
+									name="city" /> <br> <label id="seven">Sighting
+									ZipCode: </label> <input type="text" class="form-control"
+									placeholder="${sighting.location.zipcode}" name="zipcode" /> <br>
+								<label id="eight">Sighting State: </label> <input type="text"
+									class="form-control" placeholder="${sighting.location.state}"
+									name="state" /> <br> <label id="nine">Sighting
+									Country: </label> <input type="text" class="form-control"
+									placeholder="${sighting.location.country}" name="country" /> <br>
+								<input type="submit" value="Update Sighting" />
 							</fieldset>
 						</form>
 					</div>
@@ -79,26 +89,15 @@
 
 
 
-                                 KnownObject:
-								<select name="knownObject.id" id="knownObject">
-									
-									
+								KnownObject: <select name="knownObject.id" id="knownObject">
+
+
 									<option value="2">Comet</option>
 									<option value="1">Weather Balloon</option>
 									<option value="3">Aurora Borealis</option>
 								</select><br>
 
 
-
-
-
-
-
-								<%-- 	ADD Known object	
-					
-			<label id="four">Known Object: </label> 
-			<input type="text" value="${sighting.knownObject.id }" name="sighting.knownObject.id" /> 			
-			<br> --%>
 
 								<label id="five">Sighting Address: </label> <input type="text"
 									class="form-control" value="${sighting.location.address }"
