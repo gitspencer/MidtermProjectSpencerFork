@@ -1,5 +1,6 @@
 # MidtermProject
 [Coast-To-Coast SkyReport](http://18.116.157.70:8080/CoastToCoastSkyReport)
+Create account or login with Username: spencerwilliams, Password: 1234.
 
 # Overview
 
